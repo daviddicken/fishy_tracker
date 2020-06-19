@@ -12,3 +12,6 @@
 ## Wireframe
 
 ![](fishy_tracker_wireframe.PNG)
+
+User Stories:
+I am a reef tank owner, I want something to store my water parameters, so that I can track water parameter swings.
