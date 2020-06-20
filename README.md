@@ -24,3 +24,7 @@
 ## Domain Model
 
 ![](fishy_tracker_Domain_Model.PNG)
+
+## Entity Relationship Diagram
+
+![]()
