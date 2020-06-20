@@ -23,4 +23,4 @@
 
 ## Domain Model
 
-![](fishy_tracker_domain_model.PNG)
+![](fishy_tracker_Domain_Model.PNG)
