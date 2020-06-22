@@ -1,5 +1,7 @@
 'use strict';
 
+Parameters.collection = [];
+var days = [];
 // fishy tracker app fill have a form to input data from user for parameters.
 // store data to local storage
 // send data to table on table.html page
@@ -16,6 +18,16 @@
 // need to get date by calling new Date and parsing month date and year
 // find table create row > attach cell with date > continue attaching parameters to date cell > reattach row to table
 // push new data to local storage
+var tableSection = document.getElementById();
+tableSection.addEventListener('submit', handleSubmit);
+
+function handleSubmit(){
+  //when clicked submit this function should take the parameters and render the data onto a graph and to a table on the next html page.
+}
+// TO DO: create renderTable function
+// TO DO: create renderGraph function
+
+
 //---------- for chart --------------------
 // add chart.js file to index
 // copy and paste version of chart to use
@@ -34,4 +46,104 @@
 // this.magnesium
 // this.salinity
 // this.temp
+
+
+
+//======Line Chart - can add details later=========
+//https://www.chartjs.org/docs/latest/charts/line.html
+
+// var myLineChart = new Chart(ctx, {
+//   type: 'line',
+//   data: data,
+//   options: options
+// });
+
+
+function createTable()
+{
+  //get table by id
+  //create header row with days array
+  //create row for each parameter
+
+  //tableHeader();
+  //fillTable();
+
+  //create header
+  var table = document.getElementById('potatoTable');
+  console.log('table...', table);
+  var createRow = document.createElement('tr');
+  var create1stCell = document.createElement('th');
+  create1stCell.textContent = 'Date:';
+  createRow.appendChild(create1stCell);
+
+  for(var i in days)
+  {
+    var createDataCell = document.createElement('th');
+    console.log('days.date...', days[i].date);
+    createDataCell.textContent = days[i].date;
+    createRow.appendChild(createDataCell);
+  }
+  table.appendChild(createRow);
+  //-----------------------------------------
+  //fillTable
+  //--------------- nitrates ----------------
+  //var table = document.getElemtById('potatoTable');
+  var createParRow = document.createElement('tr');
+  var createParName = document.createElement('th');
+  createParName.textContent = 'Nitrates:';
+  createParRow.appendChild(createParName);
+
+  for(var j in days)
+  {
+    var parDataCell =document.createElement('td');
+    parDataCell.textContent = days[j].nitrate;
+    createParRow.appendChild(parDataCell);
+  }
+  table.appendChild(createParRow);
+  //----------- alkalinity ---------------------
+  var createAlkRow = document.createElement('tr');
+  var createAlkName = document.createElement('th');
+  createAlkName.textContent = 'Alkalinity:';
+  createAlkRow.appendChild(createAlkName);
+
+  for(var k in days)
+  {
+    var parDataCell =document.createElement('td');
+    parDataCell.textContent = days[k].alkalinity;
+    createAlkRow.appendChild(parDataCell);
+  }
+  table.appendChild(createAlkRow);
+  //-------------- calcium --------------------
+  var creatCalRow = document.createElement('tr');
+  var createParName = document.createElement('th');
+  createParName.textContent = 'Calcium:';
+  creatCalRow.appendChild(createParName);
+
+  for(var m in days)
+  {
+    var parDataCell =document.createElement('td');
+    parDataCell.textContent = days[m].calcium;
+    creatCalRow.appendChild(parDataCell);
+  }
+  table.appendChild(creatCalRow);
+}
+
+function Parameters(nitrate, alkalinity, calcium){
+  this.nitrate = nitrate;
+  this.alkalinity = alkalinity;
+  this.calcium = calcium;
+  //Stretch Goal
+  // this.magnesium = magnesium;
+  // this.salinity = salinity;
+  // this.temp = temp;
+  Parameters.collection.push(this);
+
+  let today = new Date().toLocaleDateString()
+  console.log(today);
+  days.push(today);
+
+}
+
+var newParameter = new Parameters(5, 6, 7);
+
 
