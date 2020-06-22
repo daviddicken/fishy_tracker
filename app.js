@@ -49,6 +49,15 @@ function handleSubmit(){
 
 
 
+//======Line Chart - can add details later=========
+//https://www.chartjs.org/docs/latest/charts/line.html
+
+// var myLineChart = new Chart(ctx, {
+//   type: 'line',
+//   data: data,
+//   options: options
+// });
+
 
 function createTable()
 {
@@ -136,4 +145,5 @@ function Parameters(nitrate, alkalinity, calcium){
 }
 
 var newParameter = new Parameters(5, 6, 7);
+
 
