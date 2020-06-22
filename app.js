@@ -1,5 +1,7 @@
 'use strict';
 
+Parameters.collection = [];
+var days = [];
 // fishy tracker app fill have a form to input data from user for parameters.
 // store data to local storage
 // send data to table on table.html page
@@ -45,3 +47,20 @@ function handleSubmit(){
 // this.salinity
 // this.temp
 
+function Parameters(nitrate, alkalinity, calcium){
+  this.nitrate = nitrate;
+  this.alkalinity = alkalinity;
+  this.calcium = calcium;
+  //Stretch Goal
+  // this.magnesium = magnesium;
+  // this.salinity = salinity;
+  // this.temp = temp;
+  Parameters.collection.push(this);
+
+  let today = new Date().toLocaleDateString()
+  console.log(today);
+  days.push(today);
+
+}
+
+var newParameter = new Parameters(5, 6, 7);
