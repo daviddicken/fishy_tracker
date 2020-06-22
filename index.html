@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style.css" type="text/css" rel="stylesheet"/>
   <title>Fishy Tracker</title>
 </head>
 
 <body>
+
+  <header>
+  <h1>Fishy Tracker</h1>
+  <!--Nav bars can change/ add latter-->
+  <nav>
+    <ul>
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+      <li>
+        <a href="table.html">Data</a>
+      </li>
+      <li>
+        <a href="about.html">About</a>
+      </li>
+    </ul>
+  </nav>
+  </header>
+
   <form>
     <fieldset>
       <legend>Tank Parameters</legend>
@@ -38,6 +57,17 @@
       <button id="stretch">Submit</button>
     </fieldset>
   </form>
-</body>
 
+<!-- canvas for chart that will be added later -->
+<canvas></canvas>
+
+  <main>
+    <!--submit button can move it to different spot later-->
+<!-- <button>Submit</button> -->
+  </main>
+<footer>
+
+</footer>
+  <script src="app.js"></script>
+</body>
 </html>
