@@ -27,4 +27,4 @@
 
 ## Entity Relationship Diagram
 
-![]()
+![](images/entity_diagram.PNG)
