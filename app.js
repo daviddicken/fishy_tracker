@@ -35,3 +35,80 @@
 // this.salinity
 // this.temp
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//======Line Chart - can add details later=========
+//https://www.chartjs.org/docs/latest/charts/line.html
+
+// var myLineChart = new Chart(ctx, {
+//   type: 'line',
+//   data: data,
+//   options: options
+// });
+
+
+
+
+
+
+
+
+
+
+
