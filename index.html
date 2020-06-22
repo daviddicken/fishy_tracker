@@ -3,10 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style.css" type="text/css" rel="stylesheet"/>
   <title>Fishy Tracker</title>
 </head>
+
 <body>
-  
+
+  <header>
+  <h1>Fishy Tracker</h1>
+  <!--Nav bars can change/ add latter-->
+  <nav>
+    <ul>
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+      <li>
+        <a href="table.html">Data</a>
+      </li>
+      <li>
+        <a href="about.html">About</a>
+      </li>
+    </ul>
+  </nav>
+  </header>
+
+  <form>
+    <fieldset>
+      <legend>Tank Parameters</legend>
+      <label>Nitrate: 
+      <input  type="text" name="nitrate"></label><br />
+
+      <label>Alkalinity:
+        <input type="text" name="alkalinity">
+      </label><br />
+
+      <label>Calcium: 
+        <input type="text" name="calcium">
+      </label><br />
+      <button id="parameters">Submit</button>
+    </fieldset>
+    <fieldset>
+      <legend>Stretch Tank Parameters</legend>
+      <label>Magnesium: 
+      <input  type="text" name="magnesium"></label><br />
+
+      <label>Salinity:
+        <input type="text" name="salinity">
+      </label><br />
+
+      <label>Temperature: 
+        <input type="text" name="temperature">
+      </label><br />
+      <button id="stretch">Submit</button>
+    </fieldset>
+  </form>
+
+<!-- canvas for chart that will be added later -->
+<canvas></canvas>
+
+  <main>
+    <!--submit button can move it to different spot later-->
+<!-- <button>Submit</button> -->
+  </main>
+
   <script src="app.js"></script>
 </body>
+<footer>
+
+</footer>
 </html>
