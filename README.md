@@ -11,7 +11,7 @@
 
 ## Wireframe
 
-![](fishy_tracker_wireframe.PNG)
+![](images/fishy_tracker_wireframe.PNG)
 
 ## User Stories:
 
@@ -23,8 +23,8 @@
 
 ## Domain Model
 
-![](fishy_tracker_Domain_Model.PNG)
+![](images/domain_model.PNG)
 
 ## Entity Relationship Diagram
 
-![]()
+![](images/entity_diagram.PNG)
