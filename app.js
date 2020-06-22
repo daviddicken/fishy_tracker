@@ -16,6 +16,11 @@
 // need to get date by calling new Date and parsing month date and year
 // find table create row > attach cell with date > continue attaching parameters to date cell > reattach row to table
 // push new data to local storage
+var tableSection = document.getElementById();
+tableSection.addEventListener('submit', renderTable);
+// TO DO: create renderTable function
+
+
 //---------- for chart --------------------
 // add chart.js file to index
 // copy and paste version of chart to use
