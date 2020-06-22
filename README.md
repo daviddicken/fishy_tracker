@@ -11,7 +11,7 @@
 
 ## Wireframe
 
-![](fishy_tracker_wireframe.PNG)
+![](images/fishy_tracker_wireframe.PNG)
 
 ## User Stories:
 
