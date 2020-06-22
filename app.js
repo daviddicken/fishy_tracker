@@ -35,3 +35,74 @@
 // this.salinity
 // this.temp
 
+
+
+function createTable()
+{
+  //get table by id
+  //create header row with days array
+  //create row for each parameter
+
+  //tableHeader();
+  //fillTable();
+
+  //create header
+  var table = document.getElementById('potatoTable');
+  console.log('table...', table);
+  var createRow = document.createElement('tr');
+  var create1stCell = document.createElement('th');
+  create1stCell.textContent = 'Date:';
+  createRow.appendChild(create1stCell);
+
+  for(var i in days)
+  {
+    var createDataCell = document.createElement('th');
+    console.log('days.date...', days[i].date);
+    createDataCell.textContent = days[i].date;
+    createRow.appendChild(createDataCell);
+  }
+  table.appendChild(createRow);
+  //-----------------------------------------
+  //fillTable
+  //--------------- nitrates ----------------
+  //var table = document.getElemtById('potatoTable');
+  var createParRow = document.createElement('tr');
+  var createParName = document.createElement('th');
+  createParName.textContent = 'Nitrates:';
+  createParRow.appendChild(createParName);
+
+  for(var j in days)
+  {
+    var parDataCell =document.createElement('td');
+    parDataCell.textContent = days[j].nitrate;
+    createParRow.appendChild(parDataCell);
+  }
+  table.appendChild(createParRow);
+  //----------- alkalinity ---------------------
+  var createAlkRow = document.createElement('tr');
+  var createAlkName = document.createElement('th');
+  createAlkName.textContent = 'Alkalinity:';
+  createAlkRow.appendChild(createAlkName);
+
+  for(var k in days)
+  {
+    var parDataCell =document.createElement('td');
+    parDataCell.textContent = days[k].alkalinity;
+    createAlkRow.appendChild(parDataCell);
+  }
+  table.appendChild(createAlkRow);
+  //-------------- calcium --------------------
+  var creatCalRow = document.createElement('tr');
+  var createParName = document.createElement('th');
+  createParName.textContent = 'Calcium:';
+  creatCalRow.appendChild(createParName);
+
+  for(var m in days)
+  {
+    var parDataCell =document.createElement('td');
+    parDataCell.textContent = days[m].calcium;
+    creatCalRow.appendChild(parDataCell);
+  }
+  table.appendChild(creatCalRow);
+}
+//----------------------------------------------------------------
