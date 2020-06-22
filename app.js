@@ -13,7 +13,7 @@ var days = [];
 // use values from constructor for id tags nitrate, alkalinity, ect
 // need submit button
 // ---------- For table creation -------------
-// create event listener for submit button
+// TODO: create event listener for submit button
 // TODO: if table data exist in local storage pull data
 var stringyParameters = localStorage.getItem('params');
 var parameters = JSON.parse(stringyParameters);
@@ -28,21 +28,34 @@ tableSection.addEventListener('submit', handleSubmit);
 
 function handleSubmit(){
   //when clicked submit this function should take the parameters and render the data onto a graph and to a table on the next html page.
+  createTable();
+  createGraph();
+  var stringyParamData = JSON.stringify(Parameters.collection);
+  localStorage.setItem('params', stringyParamData);
 }
-// TODO: create renderTable function
-function renderTable(){
-
-}
+// TODO: create renderTable function (see below!)
 // TODO: create renderGraph function
 
 //---------- for chart --------------------
 // add chart.js file to index
 // copy and paste version of chart to use
+function createGraph(){
 // if data exist in locale storage pull data
 // use submit button event listener to grab data entered by user
 // populate chart with new data attached
+  var nitDataset = [];
+  var alkDataset = [];
+  var calDataset = [];
+
+  for (var i = 0; i < days.length; ){
+    nitDataset.push(Parameters.collection[i].nitrate);
+    alkDataset.push(Parameters.collection[i].alkalinity);
+    calDataset.push(Parameters.collection[i].calcium);
+  }
+}
+
 // ------------ object constructor key pair values --------------------
-// function Parameters()
+// TODO: function Parameters()
 // all float values:  html: input value text > js: .parseFloat
 // this.date
 // this.nitrate
