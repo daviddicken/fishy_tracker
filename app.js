@@ -14,7 +14,12 @@ var days = [];
 // need submit button
 // ---------- For table creation -------------
 // create event listener for submit button
-// if table data exist in local storage pull data
+// TODO: if table data exist in local storage pull data
+var stringyParameters = localStorage.getItem('params');
+var parameters = JSON.parse(stringyParameters);
+if(parameters){
+  Parameters.collection = parameters;
+}
 // need to get date by calling new Date and parsing month date and year
 // find table create row > attach cell with date > continue attaching parameters to date cell > reattach row to table
 // push new data to local storage
@@ -24,9 +29,11 @@ tableSection.addEventListener('submit', handleSubmit);
 function handleSubmit(){
   //when clicked submit this function should take the parameters and render the data onto a graph and to a table on the next html page.
 }
-// TO DO: create renderTable function
-// TO DO: create renderGraph function
+// TODO: create renderTable function
+function renderTable(){
 
+}
+// TODO: create renderGraph function
 
 //---------- for chart --------------------
 // add chart.js file to index
