@@ -35,28 +35,35 @@
           <label>Nitrate</label><br>
           <input  type="text" name="nitrate"><br />
 
-          <label>Alkalinity</label><br>
-          <input type="text" name="alkalinity"><br />
+  <form id="dataform">
+    <fieldset>
+      <legend>Tank Parameters</legend>
+      <label for = "nitrate">Nitrate: 
+      <input  type="text" name="nitrate"></label><br />
 
-          <label>Calcium</label><br>
-          <input type="text" name="calcium" ><br />
-          
-        <!-- </fieldset>
-        
-        <fieldset>
-          <legend>Stretch Tank Parameters</legend> -->
-          <label>Magnesium</label><br>
-          <input  type="text" name="magnesium" placeholder="feature coming soon..."><br />
+      <label for = "alkalinity">Alkalinity:
+        <input type="text" name="alkalinity">
+      </label><br />
 
-          <label>Salinity</label><br>
-          <input type="text" name="salinity" placeholder="feature coming soon..."><br />
+      <label for = "calcium">Calcium: 
+        <input type="text" name="calcium">
+      </label><br />
+      <button id="parameters">Submit</button>
+    </fieldset>
+    <fieldset>
+      <legend>Stretch Tank Parameters</legend>
+      <label>Magnesium: 
+      <input  type="text" name="magnesium"></label><br />
 
-          <label>Temperature</label><br>
-          <input type="text" name="temperature" placeholder="feature coming soon..."><br /><br>
-          <button id="parameters">Submit</button>
-        </div>
-      </fieldset>
-    </form>
+       <label>Salinity</label><br>
+       <input type="text" name="salinity" placeholder="feature coming soon..."><br />
+
+       <label>Temperature</label><br>
+       <input type="text" name="temperature" placeholder="feature coming soon..."><br /><br>
+       <button id="parameters">Submit</button>
+     </div>
+   </fieldset>
+ </form>
 
     <!-- canvas for chart that will be added later -->
     <div id="chart-wrapper">
