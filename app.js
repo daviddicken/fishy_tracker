@@ -69,7 +69,16 @@ function createGraph(){
 
 
 
-//======Line Chart - can add details later=========
+//======Line Graph/ Chart - can add details later=========
+//=====Rendering Graph/ chart function - can change variable names for chart once data is available 
+
+// var chartLabel = [];
+// var chartData = [];
+
+ function renderTheChart(){
+//   console.log('render chart');
+   }
+//
 //https://www.chartjs.org/docs/latest/charts/line.html
 
 // var myLineChart = new Chart(ctx, {
