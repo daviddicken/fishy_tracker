@@ -89,6 +89,7 @@ h2, h3 {
   text-align: center;
 }
 #chart-wrapper {
+  margin: 1.5em;
   overflow: hidden;
   height: 200px;
 }
@@ -109,6 +110,37 @@ h2, h3 {
   color: #BAB078;
   text-align: center;
   position: absolute;
-  bottom: 1;
+  bottom: 0;
   padding-top: 40px;
+}
+
+
+
+.homefish-img {
+ height: 200px;
+ width: 250px;
+ margin-left: auto;
+ margin-right: auto;
+ padding: 5px;
+ width: 24.5%;
+}
+
+.fishimg-datapg {
+  height: 120px;
+  width: 180px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+}
+
+.fishimg-pg3 {
+  height: 120px;
+  width: 183px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+
+table{
+  text-align: center;
+
 }
