@@ -52,26 +52,33 @@ function createGraph() {
       datasets: [{
         label: parametersForTable[0],
         data: nitDataset,
-        backgroundColor: 'blue',
+        // backgroundColor: 'blue',
         borderColor: 'blue'
       },
       {
         label: parametersForTable[1],
         data: alkDataset,
-        backgroundColor: 'red',
+        // backgroundColor: 'red',
         borderColor: 'red',
       },
       {
         label: parametersForTable[2],
         data: calDataset,
-        backgroundColor: 'green',
+        // backgroundColor: 'green',
         borderColor: 'green',
       }]
     },
-    options: {}
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
   });
 }
-
 function Parameters(nitrate, alkalinity, calcium) {
   this.nitrate = nitrate;
   this.alkalinity = alkalinity;
