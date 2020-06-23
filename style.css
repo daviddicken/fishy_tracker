@@ -114,15 +114,34 @@ h2, h3 {
   padding-top: 40px;
 }
 
+.fish-tank {
+  height: 300px;
+  width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  border-radius: 50%;
+  border: 10px solid #36434F;
+}
 
+.tank {
+  height: 270px;
+  width: 300px;
+  margin-left: 5px;
+  margin-right: 1px;
+  padding: 5px;
+  border: 15px solid #3CB3BA;
+}
 
 .homefish-img {
- height: 200px;
- width: 250px;
- margin-left: auto;
- margin-right: auto;
- padding: 5px;
- width: 24.5%;
+  height: 200px;
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  width: 24.5%;
+  position: inline;
 }
 
 .fishimg-datapg {
@@ -131,6 +150,7 @@ h2, h3 {
   margin-left: auto;
   margin-right: auto;
   padding: 5px;
+  position: inline;
 }
 
 .fishimg-pg3 {
@@ -139,8 +159,9 @@ h2, h3 {
   margin-left: auto;
   margin-right: auto;
   padding: 5px;
+  position: inline;
+}
 
-table{
-  text-align: center;
-
+table {
+    text-align: center;
 }
