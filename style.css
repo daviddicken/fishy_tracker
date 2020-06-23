@@ -89,7 +89,6 @@ h2, h3 {
   text-align: center;
 }
 #chart-wrapper {
-  display: none;
   margin: 1.5em;
   overflow: hidden;
   height: 200px;
