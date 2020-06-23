@@ -1,7 +1,7 @@
 'use strict';
 
 Parameters.collection = [];
-var days = [];
+var days = [0,1,2,3,4,5,6];
 // fishy tracker app fill have a form to input data from user for parameters.
 // store data to local storage
 // send data to table on table.html page
@@ -23,18 +23,26 @@ if(parameters){
 // need to get date by calling new Date and parsing month date and year
 // find table create row > attach cell with date > continue attaching parameters to date cell > reattach row to table
 // push new data to local storage
-var tableSection = document.getElementById();
-tableSection.addEventListener('submit', handleSubmit);
+var formSection = document.getElementById('dataform');
+formSection.addEventListener('submit', handleSubmit);
 
-function handleSubmit(){
+function handleSubmit(event){
   //when clicked submit this function should take the parameters and render the data onto a graph and to a table on the next html page.
-  createTable();
+  event.preventDefault();
+  //createTable();
   createGraph();
+  var theFormForN = event.target.nitrate.value;
+  var theFormForA = event.target.alkalinity.value;
+  var theFormForC = event.target.calcium.value;
+
+  var newDayData = new Parameters(theFormForN, theFormForA,theFormForC);
+
   var stringyParamData = JSON.stringify(Parameters.collection);
   localStorage.setItem('params', stringyParamData);
+  console.log('check: ', Parameters.collection);
 }
 // TODO: create renderTable function (see below!)
-// TODO: create renderGraph function
+// TODO: create Graph function
 
 //---------- for chart --------------------
 // add chart.js file to index
@@ -52,6 +60,7 @@ function createGraph(){
     alkDataset.push(Parameters.collection[i].alkalinity);
     calDataset.push(Parameters.collection[i].calcium);
   }
+  console.log('Check: ', nitDataset);
 }
 
 // ------------ object constructor key pair values --------------------
@@ -158,12 +167,12 @@ function Parameters(nitrate, alkalinity, calcium){
   // this.temp = temp;
   Parameters.collection.push(this);
 
-  let today = new Date().toLocaleDateString()
+  let today = new Date().toLocaleDateString();
   console.log(today);
   days.push(today);
 
 }
 
 var newParameter = new Parameters(5, 6, 7);
-
+console.log(newParameter);
 
