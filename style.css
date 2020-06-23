@@ -123,3 +123,10 @@ h2, h3 {
  width: 24%;
 }
 
+.fishimg-datapg {
+  height: 120px;
+  width: 180px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+}
