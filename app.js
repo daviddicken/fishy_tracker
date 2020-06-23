@@ -52,15 +52,15 @@ function handleSubmit(event){
 //---------- for chart --------------------
 // add chart.js file to index
 // copy and paste version of chart to use
+var nitDataset = [];
+var alkDataset = [];
+var calDataset = [];
 function createGraph(){
 // if data exist in locale storage pull data
 // use submit button event listener to grab data entered by user
 // populate chart with new data attached
-  var nitDataset = [];
-  var alkDataset = [];
-  var calDataset = [];
 
-  for (var i = 0; i < days.length; ){
+  for (var i = 0; i < Parameters.collection.length; i++){
     nitDataset.push(Parameters.collection[i].nitrate);
     alkDataset.push(Parameters.collection[i].alkalinity);
     calDataset.push(Parameters.collection[i].calcium);
