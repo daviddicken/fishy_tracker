@@ -115,6 +115,11 @@ h2, h3 {
 
 
 .homefish-img {
+  height: 200px;
+  width: 200px;
  margin-left: auto;
  margin-right: auto;
+ padding: 5px;
+ width: 24%;
 }
+
