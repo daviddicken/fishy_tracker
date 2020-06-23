@@ -227,15 +227,39 @@ h2, h3 {
   padding-top: 40px;
 }
 
+.coral-img-div {
+  display: inline;
+}
 
+.coral-img {
+  height: 150px;
+  width: 150px;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: none;
+  width: 24.5%;
+  position: inline;
+  border: 5px solid #36434F;
+  border-radius: 45%; 
+}
+
+.home-img-div {
+  display: inline;
+}
 
 .homefish-img {
- height: 200px;
- width: 250px;
- margin-left: auto;
- margin-right: auto;
- padding: 5px;
- width: 24.5%;
+  height: 200px;
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  width: 24.5%;
+  position: inline;
+}
+
+.data-img-div {
+  display: inline;
 }
 
 .fishimg-datapg {
@@ -244,6 +268,11 @@ h2, h3 {
   margin-left: auto;
   margin-right: auto;
   padding: 5px;
+  position: inline;
+}
+
+.about-img-div {
+  display: inline;
 }
 
 .fishimg-pg3 {
@@ -254,7 +283,29 @@ h2, h3 {
   padding: 5px;
 }
 
-table{
-  text-align: center;
+.tank-img-div {
+  display: inline;
+}
 
+.fish-tank {
+  height: 400px;
+  width: 400px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  border-radius: 50%;
+  border: 10px solid #36434F;
+}
+.tank {
+  height: 270px;
+  width: 300px;
+  margin-left: 5px;
+  margin-right: 20px;
+  padding: 5px;
+  border: 15px solid #3CB3BA;
+}
+
+table {
+    text-align: center;
 }
