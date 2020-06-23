@@ -4,30 +4,31 @@ var days = [];
 var parametersForTable = ['Nitrates:','Alkalinity:', 'Calcium:'];
 
 
-// var stringyParameters = localStorage.getItem('params');
-// var parameters = JSON.parse(stringyParameters);
-// if(parameters){
-//   Parameters.collection = parameters;
-// }
+var stringyParameters = localStorage.getItem('params');
+var parameters = JSON.parse(stringyParameters);
+if(parameters){
+  Parameters.collection = parameters;
+}
 
-// var formSection = document.getElementById('dataform');
-// formSection.addEventListener('submit', handleSubmit);
+var formSection = document.getElementById('dataform');
+formSection.addEventListener('submit', handleSubmit);
 
 
 function handleSubmit(event){
   //when clicked submit this function should take the parameters and render the data onto a graph and to a table on the next html page.
   event.preventDefault();
-  //createTable();
-  //createGraph();
-  var theFormForN = event.target.nitrate.value;
-  var theFormForA = event.target.alkalinity.value;
-  var theFormForC = event.target.calcium.value;
+  
+  var theFormForN = parseFloat(event.target.nitrate.value);
+  var theFormForA = parseFloat(event.target.alkalinity.value);
+  var theFormForC = parseFloat(event.target.calcium.value);
 
   var newDayData = new Parameters(theFormForN, theFormForA,theFormForC);
 
   var stringyParamData = JSON.stringify(Parameters.collection);
   localStorage.setItem('params', stringyParamData);
   console.log('check: ', Parameters.collection);
+  //createTable();
+  createGraph();
 }
 
 function createGraph(){
@@ -38,12 +39,27 @@ function createGraph(){
   var alkDataset = [];
   var calDataset = [];
   
-  for (var i = 0; i < days.length; ){
+  for (var i = 0; i < days.length; i++){
     nitDataset.push(Parameters.collection[i].nitrate);
     alkDataset.push(Parameters.collection[i].alkalinity);
     calDataset.push(Parameters.collection[i].calcium);
   }
-  console.log('Check: ', nitDataset);
+  console.log('Check nitrate array ', nitDataset);
+
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var productChart = new Chart(ctx, {
+    type: 'line',
+
+    data: {
+      labels: parametersForTable,
+      datasets: [{
+        data: nitDataset,
+        backgroundColor: 'blue',
+        borderColor: 'blue'
+      }]
+    },
+    options: {}
+  });
 }
 
 function Parameters(nitrate, alkalinity, calcium){
