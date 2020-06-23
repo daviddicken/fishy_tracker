@@ -1,0 +1,89 @@
+/* off-white #F4EFE6 , yellow #BAB078 , aqua #3CB3BA , gray #9C9C9A , dark navy #36434F */
+
+* {
+  box-sizing: border-box;
+}
+body {
+  background-image: url(images/underwater.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  font-family: 'Amatic SC', cursive;
+  margin: 0;
+}
+#content-wrapper {
+  z-index: 1;
+  background-color: #F4EFE6F0;
+  width: 70%;
+  margin: 50px auto 35px;
+  padding: 10px 40px;
+  height: 850px;
+  border-radius: 3px;
+}
+header {
+  margin: 60px 0;
+}
+header h1 {
+  margin: 40px auto;
+  text-align: center;
+  font-size: 4em;
+  color: #36434F;
+}
+header nav {
+  text-align: center;
+}
+nav ul {
+  padding: 0;
+}
+nav ul li {
+  display: inline;
+  padding: 1.2em;
+}
+nav ul li a {
+  text-decoration: none;
+  font-size: 2em;
+  color: #BAB078;
+}
+form {
+  color: #3CB3BA;
+  font-size: 1.2em;
+  max-width: 480px;
+  margin: 20px auto;
+}
+fieldset {
+  border: none;
+}
+form legend {
+  text-align: center;
+  font-size: 1.8em;
+}
+form label {
+  /* float: left; */
+  /* width: 25%; */
+  text-align: right;
+}
+form input {
+  width: 100px;
+  margin: 10px;
+}
+#fieldset-wrapper {
+  /* margin: 0 60px;
+  padding: 20px; */
+  text-align: center;
+}
+#chart-wrapper {
+  overflow: hidden;
+}
+footer {
+  background-color: #36434FE8;
+  height: 250px;
+  width: 100%;
+  margin: 0;
+  color: #BAB078;
+  text-align: center;
+  position: relative;
+}
+#footer-wrapper {
+  position: absolute;
+  left: 45%;
+  top: 20%;
+}
