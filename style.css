@@ -72,6 +72,7 @@ form input {
 }
 #chart-wrapper {
   overflow: hidden;
+  height: 200px;
 }
 footer {
   background-color: #36434FE8;
@@ -83,7 +84,6 @@ footer {
   position: relative;
 }
 #footer-wrapper {
-  position: absolute;
-  left: 45%;
-  top: 20%;
+  margin: auto;
+  padding-top: 40px;
 }
