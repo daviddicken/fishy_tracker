@@ -117,8 +117,10 @@ body {
   min-height: 100vh;
   z-index: 1;
 }
+
 #content-wrapper {
   z-index: -1;
+
   background-color: #F4EFE6F0;
   width: 70%;
   margin: 50px auto 35px;
@@ -202,7 +204,11 @@ h2, h3 {
   z-index: 1;
   margin: 1.5em;
   overflow: hidden;
-  height: 200px;
+  height: auto;
+}
+
+#myChart {
+  height: 530px;
 }
 #parameters {
   z-index: 1;
@@ -255,26 +261,20 @@ h2, h3 {
   margin-right: auto;
   padding: 5px;
   width: 24.5%;
-  position: inline;
 }
-
-.data-img-div {
-  display: inline;
-}
-
+ 
 .fishimg-datapg {
   height: 120px;
   width: 180px;
   margin-left: auto;
   margin-right: auto;
   padding: 5px;
-  position: inline;
 }
 
 .about-img-div {
   display: inline;
 }
-
+ 
 .fishimg-pg3 {
   height: 120px;
   width: 183px;
@@ -282,30 +282,6 @@ h2, h3 {
   margin-right: auto;
   padding: 5px;
 }
-
-.tank-img-div {
-  display: inline;
-}
-
-.fish-tank {
-  height: 400px;
-  width: 400px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 5px;
-  border-radius: 50%;
-  border: 10px solid #36434F;
-}
-.tank {
-  height: 270px;
-  width: 300px;
-  margin-left: 5px;
-  margin-right: 20px;
-  padding: 5px;
-  border: 15px solid #3CB3BA;
-}
-
 table {
     text-align: center;
 }
