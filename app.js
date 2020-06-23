@@ -2,6 +2,7 @@
 
 Parameters.collection = [];
 var days = [];
+var parametersForTable = ['Nitrates:','Alkalinity:', 'Calcium:'];
 
 // fishy tracker app fill have a form to input data from user for parameters.
 // store data to local storage
@@ -24,8 +25,9 @@ if(parameters){
 // need to get date by calling new Date and parsing month date and year
 // find table create row > attach cell with date > continue attaching parameters to date cell > reattach row to table
 // push new data to local storage
-var tableSection = document.getElementById();
-tableSection.addEventListener('submit', handleSubmit);
+
+// var tableSection = document.getElementById();
+// tableSection.addEventListener('submit', handleSubmit);
 
 function handleSubmit(){
   //when clicked submit this function should take the parameters and render the data onto a graph and to a table on the next html page.
@@ -86,86 +88,74 @@ function createGraph(){
 //   options: options
 // });
 
-//----------------------------------------------------------
-function getNitrates()
+//-----------------------------------------
+function createTable()
 {
-  var nitrateArray = [];
+  createHeader();
+  var paramsArrays = getParams();
 
-  for(var i = 0; i < days.length; i++)
+  for(var i in parametersForTable)
   {
-    nitrateArray.push(Parameters.collection[i].nitrate);
+    fillParameterRow(parametersForTable[i], paramsArrays[i]);
   }
-  return nitrateArray;
 }
-//--------------------------------------------------------------
-function getAlkalinity()
-{
-  var alkalinityArray = [];
-
-  for(var i = 0; i < days.length; i++)
-  {
-    alkalinityArray.push(Parameters.collection[i].alkalinity);
-  }
-  return alkalinityArray;
-}
-//---------------------------------------------------------------
-function getCalcium()
-{
-  var calciumArray = [];
-
-  for(var i = 0; i < days.length; i++)
-  {
-    calciumArray.push(Parameters.collection[i].calcium);
-  }
-  return calciumArray;
-}
-//---------------------------------------------------------------
-function fillParameterRow(parameter, table, parameterArray)
-{
-  var createParRow = document.createElement('tr');
-  var createParName = document.createElement('th');
-  createParName.textContent = parameter;
-  createParRow.appendChild(createParName);
-
-  for(var j in days)
-  {
-    var parDataCell = document.createElement('td');
-    parDataCell.textContent = parameterArray[j];
-    createParRow.appendChild(parDataCell);
-  }
-  table.appendChild(createParRow);
-}
-//------------------------------------------------------
+//------------------------------------
 function createHeader()
 {
-  var table = document.getElementById('fishTable');
-  var createRow = document.createElement('tr');
-  var create1stCell = document.createElement('th');
-  create1stCell.textContent = 'Date:';
-  createRow.appendChild(create1stCell);
+  var table = createCell('fishTable', 'tr', 'th', 'Date:');
 
   for(var i in days)
   {
-    var createDataCell = document.createElement('th');
-    createDataCell.textContent = days[i];
-    createRow.appendChild(createDataCell);
+    createAndAttach(table[1], 'th', days[i]);
   }
-  table.appendChild(createRow);
-
-  return table;
+  table[0].appendChild(table[1]);
 }
-//---------------------------------------------------------
-function createTable()
+//-----------------------------------------
+function createCell(tableId, rowType, cellType, theText)
 {
-  var table = createHeader();
-  var nitratesArray = getNitrates();
-  var calciumArray = getCalcium();
-  var alkalinityArray = getAlkalinity();
-  fillParameterRow('Nitrates:', table, nitratesArray);
-  fillParameterRow('Calcium:', table, calciumArray);
-  fillParameterRow('Alkalinity:', table, alkalinityArray);
+  var table = document.getElementById(tableId);
+  var newRow = document.createElement(rowType);
+  var newCell = document.createElement(cellType);
+  newCell.textContent = theText;
+  newRow.appendChild(newCell);
+
+  return [table, newRow];
 }
-//----------------------------------------------------------
+//------------------------------------
+function createAndAttach(row,cellType, content)
+{
+  var nextCell = document.createElement(cellType);
+  nextCell.textContent = content;
+  row.appendChild(nextCell);
+}
+//--------------------------------------
+function getParams()
+{
+  var nitrateArray = [];
+  var alkalinityArray = [];
+  var calciumArray = [];
+
+  for (var i in days)
+  {
+    nitrateArray.push(Parameters.collection[i].nitrate);
+    alkalinityArray.push(Parameters.collection[i].alkalinity);
+    calciumArray.push(Parameters.collection[i].calcium);
+  }
+  return [nitrateArray, alkalinityArray, calciumArray];
+}
+//----------------------------------------------
+function fillParameterRow(parameter, parameterArray)
+{
+  var table = createCell('fishTable', 'tr', 'th', parameter);
+
+  for(var j in days)
+  {
+    createAndAttach(table[1], 'td', parameterArray[j]);
+  }
+  table[0].appendChild(table[1]);
+}
+//-------------------------------------------------
+
 function Parameters(nitrate, alkalinity, calcium){
   this.nitrate = nitrate;
   this.alkalinity = alkalinity;
@@ -177,7 +167,6 @@ function Parameters(nitrate, alkalinity, calcium){
   Parameters.collection.push(this);
 
   let today = new Date().toLocaleDateString();
-  console.log(today);
   days.push(today);
 }
 
@@ -185,6 +174,6 @@ function Parameters(nitrate, alkalinity, calcium){
 var newParameter = new Parameters(5, 6, 7);
 var newParameter2 = new Parameters(8, 9, 10);
 var newParameter3 = new Parameters(11, 12, 13);
+var newParameter3 = new Parameters(1, 2, 3);
+
 createTable();
-
-
