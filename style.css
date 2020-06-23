@@ -74,6 +74,14 @@ form input {
   overflow: hidden;
   height: 200px;
 }
+#parameters {
+  height: 50px;
+  width: 200px;
+  border-radius: 6px;
+  background-color: #3CB3BA;
+  font-family: 'Amatic SC', cursive;
+  font-size: 1.6em;
+}
 footer {
   background-color: #36434FE8;
   height: 250px;
@@ -81,7 +89,8 @@ footer {
   margin: 0;
   color: #BAB078;
   text-align: center;
-  position: relative;
+  position: absolute;
+  bottom: 0;
 }
 #footer-wrapper {
   margin: auto;
