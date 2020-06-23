@@ -114,6 +114,10 @@ h2, h3 {
   padding-top: 40px;
 }
 
+.coral-img-div {
+  display: inline;
+}
+
 .coral-img {
   height: 150px;
   width: 150px;
@@ -127,6 +131,10 @@ h2, h3 {
   border-radius: 45%; 
 }
 
+.home-img-div {
+  display: inline;
+}
+
 .homefish-img {
   height: 200px;
   width: 250px;
@@ -135,6 +143,10 @@ h2, h3 {
   padding: 5px;
   width: 24.5%;
   position: inline;
+}
+
+.data-img-div {
+  display: inline;
 }
 
 .fishimg-datapg {
@@ -146,6 +158,10 @@ h2, h3 {
   position: inline;
 }
 
+.about-img-div {
+  display: inline;
+}
+
 .fishimg-pg3 {
   height: 120px;
   width: 183px;
@@ -153,6 +169,10 @@ h2, h3 {
   margin-right: auto;
   padding: 5px;
   position: inline;
+}
+
+.tank-img-div {
+  display: inline;
 }
 
 .fish-tank {
@@ -169,7 +189,7 @@ h2, h3 {
   height: 270px;
   width: 300px;
   margin-left: 5px;
-  margin-right: 1px;
+  margin-right: 20px;
   padding: 5px;
   border: 15px solid #3CB3BA;
 }
