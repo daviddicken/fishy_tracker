@@ -17,7 +17,7 @@ formSection.addEventListener('submit', handleSubmit);
 function handleSubmit(event){
   //when clicked submit this function should take the parameters and render the data onto a graph and to a table on the next html page.
   event.preventDefault();
-  
+
   var theFormForN = parseFloat(event.target.nitrate.value);
   var theFormForA = parseFloat(event.target.alkalinity.value);
   var theFormForC = parseFloat(event.target.calcium.value);
@@ -26,7 +26,7 @@ function handleSubmit(event){
 
   var stringyParamData = JSON.stringify(Parameters.collection);
   localStorage.setItem('params', stringyParamData);
-  console.log('check: ', Parameters.collection);
+  //console.log('check: ', Parameters.collection);
   //createTable();
   createGraph();
 }
@@ -38,24 +38,39 @@ function createGraph(){
   var nitDataset = [];
   var alkDataset = [];
   var calDataset = [];
-  
+
   for (var i = 0; i < days.length; i++){
     nitDataset.push(Parameters.collection[i].nitrate);
     alkDataset.push(Parameters.collection[i].alkalinity);
     calDataset.push(Parameters.collection[i].calcium);
   }
   console.log('Check nitrate array ', nitDataset);
+  console.log('Check nitrate array ', alkDataset);
+  console.log('Check nitrate array ', calDataset);
 
   var ctx = document.getElementById('myChart').getContext('2d');
   var productChart = new Chart(ctx, {
     type: 'line',
 
     data: {
-      labels: parametersForTable,
+      labels: days,
       datasets: [{
+        label: parametersForTable[0],
         data: nitDataset,
         backgroundColor: 'blue',
         borderColor: 'blue'
+      },
+      {
+        label: parametersForTable[1],
+        data: alkDataset,
+        backgroundColor: 'red',
+        borderColor: 'red',
+      },
+      {
+        label: parametersForTable[2],
+        data: calDataset,
+        backgroundColor: 'green',
+        borderColor: 'green',
       }]
     },
     options: {}
@@ -74,7 +89,7 @@ function Parameters(nitrate, alkalinity, calcium){
 
   let today = new Date().toLocaleDateString();
 
-  console.log(today);
+// console.log(today);
 
   days.push(today);
 }
