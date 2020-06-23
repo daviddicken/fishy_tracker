@@ -51,6 +51,7 @@ var parametersForTable = ['Nitrates:','Alkalinity:', 'Calcium:'];
 //---------- for chart --------------------
 // add chart.js file to index
 // copy and paste version of chart to use
+
 // function createGraph(){
 // // if data exist in locale storage pull data
 // // use submit button event listener to grab data entered by user
@@ -66,6 +67,7 @@ var parametersForTable = ['Nitrates:','Alkalinity:', 'Calcium:'];
 //   }
 //   console.log('Check: ', nitDataset);
 // }
+
 
 // ------------ object constructor key pair values --------------------
 // TODO: function Parameters()
