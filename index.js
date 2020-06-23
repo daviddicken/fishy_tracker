@@ -4,14 +4,14 @@ var days = [];
 var parametersForTable = ['Nitrates:','Alkalinity:', 'Calcium:'];
 
 
-// var stringyParameters = localStorage.getItem('params');
-// var parameters = JSON.parse(stringyParameters);
-// if(parameters){
-//   Parameters.collection = parameters;
-// }
+var stringyParameters = localStorage.getItem('params');
+var parameters = JSON.parse(stringyParameters);
+if(parameters){
+  Parameters.collection = parameters;
+}
 
-// var formSection = document.getElementById('dataform');
-// formSection.addEventListener('submit', handleSubmit);
+var formSection = document.getElementById('dataform');
+formSection.addEventListener('submit', handleSubmit);
 
 
 function handleSubmit(event){
@@ -19,9 +19,9 @@ function handleSubmit(event){
   event.preventDefault();
   //createTable();
   //createGraph();
-  var theFormForN = event.target.nitrate.value;
-  var theFormForA = event.target.alkalinity.value;
-  var theFormForC = event.target.calcium.value;
+  var theFormForN = parseFloat(event.target.nitrate.value);
+  var theFormForA = parseFloat(event.target.alkalinity.value);
+  var theFormForC = parseFloat(event.target.calcium.value);
 
   var newDayData = new Parameters(theFormForN, theFormForA,theFormForC);
 

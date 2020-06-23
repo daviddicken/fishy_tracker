@@ -86,4 +86,6 @@ function Parameters(nitrate, alkalinity, calcium){
   days.push(today);
 }
 
+var newParameter = new Parameters(5, 6, 7);
+var newParameter2 = new Parameters(8, 9, 10);
 createTable();
