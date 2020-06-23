@@ -178,7 +178,7 @@ var parametersForTable = ['Nitrates:','Alkalinity:', 'Calcium:'];
 //   days.push(today);
 // }
 
-);
+//);
 // var newParameter3 = new Parameters(11, 12, 13);
 // var newParameter3 = new Parameters(1, 2, 3);
 
