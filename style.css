@@ -8,14 +8,15 @@ body {
   background-size: 100%;
   background-repeat: no-repeat;
   font-family: 'Amatic SC', cursive;
+  margin: 0;
 }
 #content-wrapper {
   z-index: 1;
   background-color: #F4EFE6F0;
   width: 70%;
-  margin: 50px auto;
+  margin: 50px auto 35px;
   padding: 10px 40px;
-  height: auto;
+  height: 850px;
   border-radius: 3px;
 }
 header {
@@ -68,4 +69,21 @@ form input {
   /* margin: 0 60px;
   padding: 20px; */
   text-align: center;
+}
+#chart-wrapper {
+  overflow: hidden;
+}
+footer {
+  background-color: #36434FE8;
+  height: 250px;
+  width: 100%;
+  margin: 0;
+  color: #BAB078;
+  text-align: center;
+  position: relative;
+}
+#footer-wrapper {
+  position: absolute;
+  left: 45%;
+  top: 20%;
 }
