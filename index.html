@@ -4,68 +4,68 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="style.css" type="text/css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet"> 
   <title>Fishy Tracker</title>
 </head>
 
 <body>
+  <div id="content-wrapper">
+    <header>
+      <h1>Fishy Tracker</h1>
+      <!--Nav bars can change/ add latter-->
+      <nav>
+        <ul>
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="table.html">Data</a>
+          </li>
+          <li>
+            <a href="about.html">About</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-  <header>
-  <h1>Fishy Tracker</h1>
-  <!--Nav bars can change/ add latter-->
-  <nav>
-    <ul>
-      <li>
-        <a href="index.html">Home</a>
-      </li>
-      <li>
-        <a href="table.html">Data</a>
-      </li>
-      <li>
-        <a href="about.html">About</a>
-      </li>
-    </ul>
-  </nav>
-  </header>
+    <form>
+      <fieldset>
+        <legend>Tank Parameters</legend>
+        <div id="fieldset-wrapper">
+          <label>Nitrate</label><br>
+          <input  type="text" name="nitrate"><br />
 
-  <form>
-    <fieldset>
-      <legend>Tank Parameters</legend>
-      <label>Nitrate: 
-      <input  type="text" name="nitrate"></label><br />
+          <label>Alkalinity</label><br>
+          <input type="text" name="alkalinity"><br />
 
-      <label>Alkalinity:
-        <input type="text" name="alkalinity">
-      </label><br />
+          <label>Calcium</label><br>
+          <input type="text" name="calcium" ><br />
+          
+        <!-- </fieldset>
+        
+        <fieldset>
+          <legend>Stretch Tank Parameters</legend> -->
+          <label>Magnesium</label><br>
+          <input  type="text" name="magnesium" placeholder="coming soon..."><br />
 
-      <label>Calcium: 
-        <input type="text" name="calcium">
-      </label><br />
-      <button id="parameters">Submit</button>
-    </fieldset>
-    <fieldset>
-      <legend>Stretch Tank Parameters</legend>
-      <label>Magnesium: 
-      <input  type="text" name="magnesium"></label><br />
+          <label>Salinity</label><br>
+          <input type="text" name="salinity" placeholder="coming soon..."><br />
 
-      <label>Salinity:
-        <input type="text" name="salinity">
-      </label><br />
+          <label>Temperature</label><br>
+          <input type="text" name="temperature" placeholder="coming soon..."><br /><br>
+          <button id="parameters">Submit</button>
+        </div>
+      </fieldset>
+    </form>
 
-      <label>Temperature: 
-        <input type="text" name="temperature">
-      </label><br />
-      <button id="stretch">Submit</button>
-    </fieldset>
-  </form>
+    <!-- canvas for chart that will be added later -->
+    <canvas></canvas>
 
-<!-- canvas for chart that will be added later -->
-<canvas></canvas>
-
-  <main>
-    <!--submit button can move it to different spot later-->
-<!-- <button>Submit</button> -->
-  </main>
-
+    <main>
+      <!--submit button can move it to different spot later-->
+    <!-- <button>Submit</button> -->
+    </main>
+  </div>
   <script src="app.js"></script>
 </body>
 <footer>
