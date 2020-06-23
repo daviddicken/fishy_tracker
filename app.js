@@ -155,7 +155,6 @@ function fillParameterRow(parameter, parameterArray)
   table[0].appendChild(table[1]);
 }
 //-------------------------------------------------
-
 function Parameters(nitrate, alkalinity, calcium){
   this.nitrate = nitrate;
   this.alkalinity = alkalinity;
