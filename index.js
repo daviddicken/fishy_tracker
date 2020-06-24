@@ -40,19 +40,19 @@ function handleSubmit(event) {
 }
 
 function createGraph() {
+
   console.log('Parameter arr: ', Parameters.collection);
+
   for (var i = 0; i < Parameters.collection.length; i++) {
     nitDataset.push(Parameters.collection[i].nitrate);
     alkDataset.push(Parameters.collection[i].alkalinity);
     calDataset.push(Parameters.collection[i].calcium);
+
     // magDataset.push(Parameters.collection[i].magnesium);
     // salDataset.push(Parameters.collection[i].salinity);
     // tempDataset.push(Parameters.collection[i].temperature);
     days.push(Parameters.collection[i].today);
   }
-  // console.log('Check nitrate array ', nitDataset);
-  // console.log('Check alkaline array ', alkDataset);
-  // console.log('Check calcium array ', calDataset);
 
   var ctx = document.getElementById('myChart').getContext('2d');
   var productChart = new Chart(ctx, {
@@ -147,6 +147,7 @@ function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
 // var newDay = new Date();
 // Parameters.prototype.date = newDay;
 
+
 // var newParameter = new Parameters(20, 9, 400); //1300 mag, 1.025 sal, 78 temp
 // var newParameter2 = new Parameters(12, 8, 380); 
 // var newParameter3 = new Parameters(11, 7, 350);
@@ -158,3 +159,4 @@ function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
 // days[3] = '06/23/2020';
 
 //createGraph();
+
