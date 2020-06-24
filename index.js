@@ -51,149 +51,35 @@ function createGraph() {
   }
   console.log('Parameter arr: ', Parameters.collection);
 
-  var ctx = document.getElementById('myChart').getContext('2d');
-  var productChart = new Chart(ctx, {
-    type: 'line',
+  var chartArr = ['myChart', 'myChart2', 'myChart3', 'myChart4', 'myChart5', 'myChart6'];
+  var colorArr = ['blue', 'red', 'green', 'yellow', 'orange', 'violet'];
+  var paramDataArr = [nitDataset, alkDataset, calDataset, magDataset, salDataset, tempDataset];
 
-    data: {
-      labels: days,
-      datasets: [{
-        label: parametersForTable[0],
-        data: nitDataset,
-        backgroundColor: 'blue',
-        borderColor: 'blue'
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
+  for (var j = 0; j < paramDataArr.length; j++) {
+    var qtx = document.getElementById(chartArr[j]).getContext('2d');
+    var productChart = new Chart(qtx, {
+      type: 'line',
+
+      data: {
+        labels: days,
+        datasets: [{
+          label: parametersForTable[j],
+          data: paramDataArr[j],
+          backgroundColor: colorArr[j],
+          borderColor: colorArr[j]
         }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
       }
-    }
-  });
-
-  var dtx = document.getElementById('myChart2').getContext('2d');
-  var productChart = new Chart(dtx, {
-    type: 'line',
-
-    data: {
-      labels: days,
-      datasets: [{
-        label: parametersForTable[1],
-        data: alkDataset,
-        backgroundColor: 'red',
-        borderColor: 'red'
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
-        }]
-      }
-    }
-  });
-
-  var etx = document.getElementById('myChart3').getContext('2d');
-  var productChart = new Chart(etx, {
-    type: 'line',
-
-    data: {
-      labels: days,
-      datasets: [{
-        label: parametersForTable[2],
-        data: calDataset,
-        backgroundColor: 'green',
-        borderColor: 'green'
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
-        }]
-      }
-    }
-  });
-
-  var btx = document.getElementById('myChart4').getContext('2d');
-  var productChart = new Chart(btx, {
-    type: 'line',
-
-    data: {
-      labels: days,
-      datasets: [{
-        label: parametersForTable[3],
-        data: magDataset,
-        backgroundColor: 'yellow',
-        borderColor: 'yellow'
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
-        }]
-      }
-    }
-  });
-
-  var rtx = document.getElementById('myChart5').getContext('2d');
-  var productChart = new Chart(rtx, {
-    type: 'line',
-
-    data: {
-      labels: days,
-      datasets: [{
-        label: parametersForTable[4],
-        data: salDataset,
-        backgroundColor: 'orange',
-        borderColor: 'orange'
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
-        }]
-      }
-    }
-  });
-
-  var qtx = document.getElementById('myChart6').getContext('2d');
-  var productChart = new Chart(qtx, {
-    type: 'line',
-
-    data: {
-      labels: days,
-      datasets: [{
-        label: parametersForTable[5],
-        data: tempDataset,
-        backgroundColor: 'violet',
-        borderColor: 'violet'
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
-        }]
-      }
-    }
-  });
+    });
+  }
 }
 
 function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
@@ -227,4 +113,3 @@ function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
 // days[3] = '06/23/2020';
 
 //createGraph();
-
