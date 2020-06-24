@@ -1,7 +1,8 @@
 'use strict';
 Parameters.collection = [];
 var days = [];
-var parametersForTable = ['Nitrates:','Alkalinity:', 'Calcium:','Magnesium:','Salinity','Temperature:'];
+
+var parametersForTable = ['Nitrates:','Alkalinity:', 'Calcium:', 'Magnesium:', 'Salinity:', 'Temperature:'];
 
 function createTable()
 {
@@ -89,6 +90,7 @@ function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp){
   days.push(today);
 }
 
-var newParameter = new Parameters(5, 6, 7, 1200, 1.025, 78);
-var newParameter2 = new Parameters(8, 9, 10, 1300, 1.020, 80);
+var newParameter = new Parameters(5, 6, 7, 1300, 1.025, 78);
+var newParameter2 = new Parameters(8, 9, 10, 100, 1.015, 80);
+
 createTable();

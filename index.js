@@ -1,7 +1,8 @@
 'use strict';
 Parameters.collection = [];
 var days = [];
-var parametersForTable = ['Nitrates:', 'Alkalinity:', 'Calcium:', 'Magnesium:','Salinity:','Tempurature:'];
+
+var parametersForTable = ['Nitrates:', 'Alkalinity:', 'Calcium:','Magnesium:', 'Salinity:', 'Temperature:'];
 
 var stringyParameters = localStorage.getItem('params');
 var parameters = JSON.parse(stringyParameters);
@@ -50,14 +51,23 @@ function handleSubmit(event) {
 
 
   var newDayData = new Parameters(theFormForN, theFormForA, theFormForC, theFormForM, theFormForS, theFormForT);
-
+  
+function createGraph() {
+  var nitDataset = [];
+  var alkDataset = [];
+  var calDataset = [];
+  var magDataset = [];
+  var salDataset = [];
+  var tempDataset = [];
+  for (var i = 0; i < days.length; i++) {
+  
   for (var i = 0; i < Parameters.collection.length; i++) {
     nitDataset.push(Parameters.collection[i].nitrate);
     alkDataset.push(Parameters.collection[i].alkalinity);
     calDataset.push(Parameters.collection[i].calcium);
     magDataset.push(Parameters.collection[i].magnesium);
     salDataset.push(Parameters.collection[i].salinity);
-    tempDataset.push(Parameters.collection[i].temp);
+    tempDataset.push(Parameters.collection[i].temperature);
   }
 
   var stringyParamData = JSON.stringify(Parameters.collection);
@@ -104,7 +114,9 @@ function createGraph() {
     }
   });
 }
+
 function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
+
   this.nitrate = nitrate;
   this.alkalinity = alkalinity;
   this.calcium = calcium;
@@ -115,7 +127,6 @@ function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
   Parameters.collection.push(this);
 
   let today = new Date().toLocaleDateString();
-
   days.push(today);
 }
 var newDay = new Date();
