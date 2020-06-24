@@ -153,6 +153,7 @@ table {
   padding: none;
   border: 5px solid #36434F;
   border-radius: 45%; 
+  box-shadow: 1px 1px 100px #3CB3BA;
 }
 
 #home-img-div {
@@ -167,7 +168,7 @@ table {
   padding: 5px;
   width: 24.5%;
   border-radius: 100%;
-  box-shadow: 5px 5px 10px #BAB078;
+  box-shadow: 10px 10px 50px #BAB078;
 }
  
 .fishimg-datapg {
