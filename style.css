@@ -141,28 +141,27 @@ table {
 }
 
 .coral-img-div {
-  display: inline;
+  display: block;
 }
 
 .coral-img {
   height: 150px;
-  width: 150px;
+  width: 24.5%;
   margin-top: 100px;
   margin-left: auto;
   margin-right: auto;
   padding: none;
-  width: 24.5%;
   border: 5px solid #36434F;
   border-radius: 45%; 
 }
 
-.home-img-div {
-  display: inline;
+#home-img-div {
+  display: block;
 }
 
 .homefish-img {
   height: 200px;
-  width: 250px;
+  width: 25%;
   margin-left: auto;
   margin-right: auto;
   padding: 5px;
@@ -204,7 +203,7 @@ table {
 
 .fish-tank {
   height: 400px;
-  width: 400px;
+  width: 50%;
   display: block;
   margin-left: auto;
   margin-right: auto;
