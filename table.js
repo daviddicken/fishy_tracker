@@ -1,7 +1,7 @@
 'use strict';
 Parameters.collection = [];
 var days = [];
-var parametersForTable = ['Nitrates:','Alkalinity:', 'Calcium:'];
+var parametersForTable = ['Nitrates:','Alkalinity:', 'Calcium:','Magnesium:','Salinity','Temperature:'];
 
 function createTable()
 {
@@ -45,17 +45,23 @@ function createAndAttach(row,cellType, content)
 //--------------------------------------
 function getParams()
 {
-  var nitrateArray = [];
-  var alkalinityArray = [];
-  var calciumArray = [];
+  var nitArray = [];
+  var alkArray = [];
+  var calArray = [];
+  var magArray = [];
+  var salArray = [];
+  var tempArray = [];
 
   for (var i in days)
   {
-    nitrateArray.push(Parameters.collection[i].nitrate);
-    alkalinityArray.push(Parameters.collection[i].alkalinity);
-    calciumArray.push(Parameters.collection[i].calcium);
+    nitArray.push(Parameters.collection[i].nitrate);
+    alkArray.push(Parameters.collection[i].alkalinity);
+    calArray.push(Parameters.collection[i].calcium);
+    magArray.push(Parameters.collection[i].magnesium);
+    salArray.push(Parameters.collection[i].salinity);
+    tempArray.push(Parameters.collection[i].temp);
   }
-  return [nitrateArray, alkalinityArray, calciumArray];
+  return [nitArray, alkArray, calArray, magArray, salArray, tempArray];
 }
 //----------------------------------------------
 function fillParameterRow(parameter, parameterArray)
@@ -69,23 +75,20 @@ function fillParameterRow(parameter, parameterArray)
   table[0].appendChild(table[1]);
 }
 
-function Parameters(nitrate, alkalinity, calcium){
+function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp){
   this.nitrate = nitrate;
   this.alkalinity = alkalinity;
   this.calcium = calcium;
   //Stretch Goal
-  // this.magnesium = magnesium;
-  // this.salinity = salinity;
-  // this.temp = temp;
+  this.magnesium = magnesium;
+  this.salinity = salinity;
+  this.temp = temp;
   Parameters.collection.push(this);
 
   let today = new Date().toLocaleDateString();
-
-  console.log(today);
-
   days.push(today);
 }
 
-var newParameter = new Parameters(5, 6, 7);
-var newParameter2 = new Parameters(8, 9, 10);
+var newParameter = new Parameters(5, 6, 7, 1200, 1.025, 78);
+var newParameter2 = new Parameters(8, 9, 10, 1300, 1.020, 80);
 createTable();
