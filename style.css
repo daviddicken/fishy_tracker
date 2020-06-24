@@ -152,7 +152,6 @@ table {
   margin-right: auto;
   padding: none;
   width: 24.5%;
-  position: inline;
   border: 5px solid #36434F;
   border-radius: 45%; 
 }
@@ -168,28 +167,38 @@ table {
   margin-right: auto;
   padding: 5px;
   width: 24.5%;
+  border-radius: 100%;
+  box-shadow: 5px 5px 10px #BAB078;
 }
  
 .fishimg-datapg {
-  height: 120px;
-  width: 180px;
+  height: auto;
+  width: 19%;
   margin-left: auto;
   margin-right: auto;
-  padding: 5px;
+  padding: 10px;
+  transition: auto;border-radius: 30%;
+  box-shadow: 10px 10px 30px #BAB078;
 }
 
-.about-img-div {
-  display: inline;
+#data-img-div {
+  display: block;
+}
+
+#about-img-div {
+  display: block;
 }
  
 .fishimg-pg3 {
   height: 120px;
-  width: 183px;
+  width: 19%;
   margin-left: auto;
   margin-right: auto;
   padding: 5px;
+  border-radius: 20%;
+  box-shadow: 10px 10px 30px #BAB078;
 }
-.tank-img-div {
+#tank-img-div {
   display: inline;
 }
 
@@ -202,14 +211,18 @@ table {
   padding: 5px;
   border-radius: 50%;
   border: 10px solid #36434F;
+  box-shadow: 10px 10px 100px #3CB3BA;
 }
 .tank {
-  height: 270px;
-  width: 300px;
-  margin-left: 5px;
-  margin-right: 20px;
+  height: 225px;
+  width: 285px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
   padding: 5px;
-  border: 15px solid #3CB3BA;
+  border: 15px groove #3CB3BA;
+  display: block;
+  box-shadow: 30px 30px 30px #36434F;
 }
 /* https://www.youtube.com/watch?v=ETXba6QOzYg */
 .bubbles {
