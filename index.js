@@ -1,18 +1,43 @@
 'use strict';
 Parameters.collection = [];
 var days = [];
-var parametersForTable = ['Nitrates:', 'Alkalinity:', 'Calcium:'];
+var parametersForTable = ['Nitrates:', 'Alkalinity:', 'Calcium:','Magnesium:', 'Salinity:', 'Temperature:'];
 
 
 var stringyParameters = localStorage.getItem('params');
 var parameters = JSON.parse(stringyParameters);
+
 if (parameters) {
   Parameters.collection = parameters;
+  
+  var nitDataset = [];
+  var alkDataset = [];
+  var calDataset = [];
+  var magDataset = [];
+  var salDataset = [];
+  var tempDataset = [];
+
+  for (var i = 0; i < Parameters.collection.length; i++) {
+    nitDataset.push(Parameters.collection[i].nitrate);
+    alkDataset.push(Parameters.collection[i].alkalinity);
+    calDataset.push(Parameters.collection[i].calcium);
+    magDataset.push(Parameters.collection[i].magnesium);
+    salDataset.push(Parameters.collection[i].salinity);
+    tempDataset.push(Parameters.collection[i].temp);
+  }
+
+  createGraph();
 }
 
 var formSection = document.getElementById('dataform');
 formSection.addEventListener('submit', handleSubmit);
-
+// lines 29-31 work and populate data for first click, but if I dont refresh it shows a stagnant value
+nitDataset = [];
+alkDataset = [];
+calDataset = [];
+magDataset = [];
+salDataset = [];
+tempDataset = [];
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -20,8 +45,20 @@ function handleSubmit(event) {
   var theFormForN = parseFloat(event.target.nitrate.value);
   var theFormForA = parseFloat(event.target.alkalinity.value);
   var theFormForC = parseFloat(event.target.calcium.value);
+  var theFormForM = parseFloat(event.target.magnesium.value);
+  var theFormForS = parseFloat(event.target.salinity.value);
+  var theFormForT = parseFloat(event.target.temperature.value);
+  
+  for (var i = 0; i < Parameters.collection.length; i++) {
+    nitDataset.push(Parameters.collection[i].nitrate);
+    alkDataset.push(Parameters.collection[i].alkalinity);
+    calDataset.push(Parameters.collection[i].calcium);
+    magDataset.push(Parameters.collection[i].magnesium);
+    salDataset.push(Parameters.collection[i].salinity);
+    tempDataset.push(Parameters.collection[i].temperature);
+  }
 
-  var newDayData = new Parameters(theFormForN, theFormForA, theFormForC);
+  var newDayData = new Parameters(theFormForN, theFormForA, theFormForC, theFormForM, theFormForS, theFormForT);
   console.log(newDayData);
 
   var stringyParamData = JSON.stringify(Parameters.collection);
@@ -93,22 +130,22 @@ function createGraph() {
 
 }
 
-function Parameters(nitrate, alkalinity, calcium) {
+function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
   this.nitrate = nitrate;
   this.alkalinity = alkalinity;
   this.calcium = calcium;
   //Stretch Goal
-  // this.magnesium = magnesium;
-  // this.salinity = salinity;
-  // this.temp = temp;
+  this.magnesium = magnesium;
+  this.salinity = salinity;
+  this.temp = temp;
   Parameters.collection.push(this);
 
   let today = new Date().toLocaleDateString();
-
-  // console.log(today);
-
   days.push(today);
 }
+
+var newDay = new Date();
+Parameters.prototype.date = newDay;
 
 var newParameter = new Parameters(20, 9, 400); //1300 mag, 1.025 sal, 78 temp
 var newParameter2 = new Parameters(12, 8, 380); 
