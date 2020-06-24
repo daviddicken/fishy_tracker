@@ -1,25 +1,31 @@
 'use strict';
 Parameters.collection = [];
 var days = [];
-var parametersForTable = ['Nitrates:', 'Alkalinity:', 'Calcium:','Magnesium:', 'Salinity:', 'Temperature:'];
 
+var parametersForTable = ['Nitrates:', 'Alkalinity:', 'Calcium:','Magnesium:', 'Salinity:', 'Temperature:'];
 
 var stringyParameters = localStorage.getItem('params');
 var parameters = JSON.parse(stringyParameters);
 
 if (parameters) {
   Parameters.collection = parameters;
-  console.log('Check nitrate array ', parameters);
 
   var nitDataset = [];
   var alkDataset = [];
   var calDataset = [];
+  var magDataset = [];
+  var salDataset = [];
+  var tempDataset = [];
+
   for (var i = 0; i < Parameters.collection.length; i++) {
     nitDataset.push(Parameters.collection[i].nitrate);
     alkDataset.push(Parameters.collection[i].alkalinity);
     calDataset.push(Parameters.collection[i].calcium);
+    magDataset.push(Parameters.collection[i].magnesium);
+    salDataset.push(Parameters.collection[i].salinity);
+    tempDataset.push(Parameters.collection[i].temp);
   }
-  //console.log('Check nitrate array ', nitDataset);
+
   createGraph();
 }
 
@@ -29,8 +35,12 @@ formSection.addEventListener('submit', handleSubmit);
 nitDataset = [];
 alkDataset = [];
 calDataset = [];
+magDataset = [];
+salDataset = [];
+tempDataset = [];
+
 function handleSubmit(event) {
-  //event.preventDefault();
+  event.preventDefault();
 
   var theFormForN = parseFloat(event.target.nitrate.value);
   var theFormForA = parseFloat(event.target.alkalinity.value);
@@ -38,6 +48,7 @@ function handleSubmit(event) {
   var theFormForM = parseFloat(event.target.magnesium.value);
   var theFormForS = parseFloat(event.target.salinity.value);
   var theFormForT = parseFloat(event.target.temperature.value);
+
 
   var newDayData = new Parameters(theFormForN, theFormForA, theFormForC, theFormForM, theFormForS, theFormForT);
   
@@ -48,7 +59,8 @@ function createGraph() {
   var magDataset = [];
   var salDataset = [];
   var tempDataset = [];
-  //for (var i = 0; i < days.length; i++) {
+  for (var i = 0; i < days.length; i++) {
+  
   for (var i = 0; i < Parameters.collection.length; i++) {
     nitDataset.push(Parameters.collection[i].nitrate);
     alkDataset.push(Parameters.collection[i].alkalinity);
@@ -60,6 +72,7 @@ function createGraph() {
 
   var stringyParamData = JSON.stringify(Parameters.collection);
   localStorage.setItem('params', stringyParamData);
+
   createGraph();
 }
 
@@ -88,22 +101,6 @@ function createGraph() {
         data: calDataset,
         // backgroundColor: 'green',
         borderColor: 'green',
-      },
-      {
-        label: parametersForTable[3],
-        data: magDataset,
-        backgroundColor: 'purple',
-        borderColor: 'purple',
-      },{
-        label: parametersForTable[4],
-        data: salDataset,
-        backgroundColor: 'yellow',
-        borderColor: 'yellow',
-      },{
-        label: parametersForTable[5],
-        data: tempDataset,
-        backgroundColor: 'orange',
-        borderColor: 'orange',
       }]
     },
     options: {
@@ -117,7 +114,6 @@ function createGraph() {
     }
   });
 }
-
 
 function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
 
@@ -136,8 +132,7 @@ function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
 var newDay = new Date();
 Parameters.prototype.date = newDay;
 
-var newParameter = new Parameters(5, 6, 7, 1300, 1.025, 79.8);
-var newParameter2 = new Parameters(8, 9, 10, 1350, 1, 75);
-var newParameter3 = new Parameters(11, 12, 13, 1000, 1.035, 77);
-var newParameter4 = new Parameters(1, 2, 3, 1200, 1.011, 80);
-
+//var newParameter = new Parameters(5, 6, 7, 1300, 1.025, 80);
+//var newParameter2 = new Parameters(8, 9, 10, 1250, 1.020, 78);
+// var newParameter3 = new Parameters(11, 12, 13);
+// var newParameter4 = new Parameters(1, 2, 3);
