@@ -34,7 +34,7 @@ function createGraph() {
   var alkDataset = [];
   var calDataset = [];
   console.log(Parameters.collection);
-  for (var i = 0; i < days.length; i++) {
+  for (var i = 0; i < Parameters.collection.length; i++) {
     nitDataset.push(Parameters.collection[i].nitrate);
     alkDataset.push(Parameters.collection[i].alkalinity);
     calDataset.push(Parameters.collection[i].calcium);
@@ -89,7 +89,9 @@ function Parameters(nitrate, alkalinity, calcium) {
   days.push(today);
 }
 
-var newParameter = new Parameters(5, 6, 7);
-var newParameter2 = new Parameters(8, 9, 10);
-var newParameter3 = new Parameters(11, 12, 13);
-var newParameter4 = new Parameters(1, 2, 3);
+var newParameter = new Parameters(20, 9, 400); //1300 mag, 1.025 sal, 78 temp
+var newParameter2 = new Parameters(12, 8, 380); 
+var newParameter3 = new Parameters(11, 7, 350);
+var newParameter4 = new Parameters(14, 10, 375);
+
+createGraph();
