@@ -2,13 +2,23 @@
 Parameters.collection = [];
 var days = [];
 var parametersForTable = ['Nitrates:', 'Alkalinity:', 'Calcium:'];
+var nitDataset = [];
+var alkDataset = [];
+var calDataset = [];
 
 
 var stringyParameters = localStorage.getItem('params');
 var parameters = JSON.parse(stringyParameters);
 if (parameters) {
   Parameters.collection = parameters;
+  for (var i = 0; i < Parameters.collection.length; i++){
+    nitDataset.push(Parameters.collection[i].nitrate);
+    alkDataset.push(Parameters.collection[i].alkalinity);
+    calDataset.push(Parameters.collection[i].calcium);
+  }
+  createGraph();
 }
+console.log('list: ', Parameters.collection);
 
 var formSection = document.getElementById('dataform');
 formSection.addEventListener('submit', handleSubmit);
@@ -30,16 +40,17 @@ function handleSubmit(event) {
 }
 
 function createGraph() {
-  var nitDataset = [];
-  var alkDataset = [];
-  var calDataset = [];
-  console.log(Parameters.collection);
+  // var nitDataset = [];
+  // var alkDataset = [];
+  // var calDataset = [];
+
+  //console.log(Parameters.collection);
   for (var i = 0; i < days.length; i++) {
     nitDataset.push(Parameters.collection[i].nitrate);
     alkDataset.push(Parameters.collection[i].alkalinity);
     calDataset.push(Parameters.collection[i].calcium);
   }
-  // console.log('Check nitrate array ', nitDataset);
+  console.log('Check nitrate array ', nitDataset);
   // console.log('Check alkaline array ', alkDataset);
   // console.log('Check calcium array ', calDataset);
 
@@ -95,8 +106,11 @@ function Parameters(nitrate, alkalinity, calcium) {
 
   days.push(today);
 }
+var newDay = new Date();
+Parameters.prototype.date = newDay;
+//console.log(newDay);
 
-var newParameter = new Parameters(5, 6, 7);
-var newParameter2 = new Parameters(8, 9, 10);
-var newParameter3 = new Parameters(11, 12, 13);
-var newParameter4 = new Parameters(1, 2, 3);
+// var newParameter = new Parameters(5, 6, 7);
+// var newParameter2 = new Parameters(8, 9, 10);
+// var newParameter3 = new Parameters(11, 12, 13);
+// var newParameter4 = new Parameters(1, 2, 3);
