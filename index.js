@@ -49,6 +49,7 @@ function handleSubmit(event) {
   var theFormForS = parseFloat(event.target.salinity.value);
   var theFormForT = parseFloat(event.target.temperature.value);
   
+
   for (var i = 0; i < Parameters.collection.length; i++) {
     nitDataset.push(Parameters.collection[i].nitrate);
     alkDataset.push(Parameters.collection[i].alkalinity);
