@@ -18,8 +18,10 @@ body {
   min-height: 100vh;
   z-index: 1;
 }
+
 #content-wrapper {
   z-index: -1;
+
   background-color: #F4EFE6F0;
   width: 70%;
   margin: 50px auto 35px;
@@ -111,7 +113,11 @@ table {
   z-index: 1;
   margin: 1.5em;
   overflow: hidden;
-  height: 200px;
+  height: auto;
+}
+
+#myChart {
+  height: 530px;
 }
 #parameters {
   z-index: 1;
