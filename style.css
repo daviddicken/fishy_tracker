@@ -27,7 +27,7 @@ body {
   list-style: none;
   display: block;
   background-color: rgba(255, 255, 255, 0.15);
-  bottom: -60px;
+  bottom: -500px;
   animation: circle 20s infinite; 
   transition-timing-function: linear;
   border-radius: 50%;
@@ -118,9 +118,10 @@ body {
   z-index: 1;
 }
 #content-wrapper {
-  z-index: -1;
+  z-index: 1;
   background-color: #F4EFE6F0;
   width: 70%;
+  /* height: 60%; */
   margin: 50px auto 35px;
   padding: 10px 40px 250px 40px;
   height: auto;
@@ -201,7 +202,7 @@ h2, h3 {
 #chart-wrapper {
   z-index: 1;
   margin: 1.5em;
-  overflow: hidden;
+  /* overflow: hidden; */
   height: 200px;
 }
 #parameters {
@@ -214,6 +215,7 @@ h2, h3 {
   font-size: 1.6em;
 }
 /* footer */
+
 #footer-wrapper {
   z-index: 1;
   background-color: #36434FE8;
@@ -284,7 +286,8 @@ h2, h3 {
 }
 
 .tank-img-div {
-  display: inline;
+  display: inline-block;
+  
 }
 
 .fish-tank {
