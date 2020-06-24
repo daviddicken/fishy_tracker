@@ -14,7 +14,7 @@ if (parameters) {
   var nitDataset = [];
   var alkDataset = [];
   var calDataset = [];
-  for (var i = 0; i < Parameters.collection.length; i++) {
+  for (var i = 0; i < Parameters.collection.length; i++){
     nitDataset.push(Parameters.collection[i].nitrate);
     alkDataset.push(Parameters.collection[i].alkalinity);
     calDataset.push(Parameters.collection[i].calcium);
@@ -23,14 +23,12 @@ if (parameters) {
   createGraph();
 }
 
+
 var formSection = document.getElementById('dataform');
 formSection.addEventListener('submit', handleSubmit);
-// lines 29-31 work and populate data for first click, but if I dont refresh it shows a stagnant value
-nitDataset = [];
-alkDataset = [];
-calDataset = [];
+
 function handleSubmit(event) {
-  //event.preventDefault();
+  event.preventDefault();
 
   var theFormForN = parseFloat(event.target.nitrate.value);
   var theFormForA = parseFloat(event.target.alkalinity.value);
@@ -40,11 +38,13 @@ function handleSubmit(event) {
   console.log('params taken in: ', newDayData);
   console.log('new list: ', Parameters.collection);
 
+  var stringyParamData = JSON.stringify(Parameters.collection);
+  localStorage.setItem('params', stringyParamData);
 
-  // var nitDataset = [];
-  // var alkDataset = [];
-  // var calDataset = [];
-  for (var i = 0; i < Parameters.collection.length; i++) {
+  var nitDataset = [];
+  var alkDataset = [];
+  var calDataset = [];
+  for (var i = 0; i < days.length; i++) {
     nitDataset.push(Parameters.collection[i].nitrate);
     alkDataset.push(Parameters.collection[i].alkalinity);
     calDataset.push(Parameters.collection[i].calcium);
@@ -52,14 +52,10 @@ function handleSubmit(event) {
   // console.log('Check alkaline array ', alkDataset);
   // console.log('Check calcium array ', calDataset);
   console.log('Check nitrate array ', nitDataset);
-  var stringyParamData = JSON.stringify(Parameters.collection);
-  localStorage.setItem('params', stringyParamData);
-  console.log('check params: ', stringyParamData);
   createGraph();
 }
 
 function createGraph() {
-
   var ctx = document.getElementById('myChart').getContext('2d');
   var productChart = new Chart(ctx, {
     type: 'line',
