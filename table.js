@@ -1,7 +1,7 @@
 'use strict';
 Parameters.collection = [];
 var days = [];
-var parametersForTable = ['Nitrates:','Alkalinity:', 'Calcium:'];
+var parametersForTable = ['Nitrates:','Alkalinity:', 'Calcium:', 'Magnesium:', 'Salinity:', 'Temperature:'];
 
 function createTable()
 {
@@ -48,14 +48,20 @@ function getParams()
   var nitrateArray = [];
   var alkalinityArray = [];
   var calciumArray = [];
+  var magnesiumArray = [];
+  var salinityArray = [];
+  var tempArray = [];
 
   for (var i in days)
   {
     nitrateArray.push(Parameters.collection[i].nitrate);
     alkalinityArray.push(Parameters.collection[i].alkalinity);
     calciumArray.push(Parameters.collection[i].calcium);
+    magnesiumArray.push(Parameters.collection[i].magnesium);
+    salinityArray.push(Parameters.collection[i].salinity);
+    tempArray.push(Parameters.collection[i].temp);
   }
-  return [nitrateArray, alkalinityArray, calciumArray];
+  return [nitrateArray, alkalinityArray, calciumArray, magnesiumArray, salinityArray, tempArray];
 }
 //----------------------------------------------
 function fillParameterRow(parameter, parameterArray)
@@ -69,23 +75,20 @@ function fillParameterRow(parameter, parameterArray)
   table[0].appendChild(table[1]);
 }
 
-function Parameters(nitrate, alkalinity, calcium){
+function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp){
   this.nitrate = nitrate;
   this.alkalinity = alkalinity;
   this.calcium = calcium;
   //Stretch Goal
-  // this.magnesium = magnesium;
-  // this.salinity = salinity;
-  // this.temp = temp;
+  this.magnesium = magnesium;
+  this.salinity = salinity;
+  this.temp = temp;
   Parameters.collection.push(this);
 
   let today = new Date().toLocaleDateString();
-
-  console.log(today);
-
   days.push(today);
 }
 
-var newParameter = new Parameters(5, 6, 7);
-var newParameter2 = new Parameters(8, 9, 10);
+var newParameter = new Parameters(5, 6, 7, 1300, 1.025, 78);
+var newParameter2 = new Parameters(8, 9, 10, 100, 1.015, 80);
 createTable();
