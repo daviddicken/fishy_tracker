@@ -1,8 +1,8 @@
 'use strict';
 
-Parameters.collection = [];
-var days = [];
-var parametersForTable = ['Nitrates:','Alkalinity:', 'Calcium:'];
+// Parameters.collection = [];
+// var days = [];
+// var parametersForTable = ['Nitrates:','Alkalinity:', 'Calcium:'];
 
 // fishy tracker app fill have a form to input data from user for parameters.
 // store data to local storage
@@ -83,7 +83,7 @@ var parametersForTable = ['Nitrates:','Alkalinity:', 'Calcium:'];
 // this.temp
 
 //======Line Graph/ Chart - can add details later=========
-//=====Rendering Graph/ chart function - can change variable names for chart once data is available 
+//=====Rendering Graph/ chart function - can change variable names for chart once data is available
 
 //
 //https://www.chartjs.org/docs/latest/charts/line.html
@@ -178,7 +178,7 @@ var parametersForTable = ['Nitrates:','Alkalinity:', 'Calcium:'];
 //   days.push(today);
 // }
 
-);
+
 // var newParameter3 = new Parameters(11, 12, 13);
 // var newParameter3 = new Parameters(1, 2, 3);
 
