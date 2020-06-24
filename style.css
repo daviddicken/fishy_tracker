@@ -18,10 +18,8 @@ body {
   min-height: 100vh;
   z-index: 1;
 }
-
 #content-wrapper {
   z-index: -1;
-
   background-color: #F4EFE6F0;
   width: 70%;
   margin: 50px auto 35px;
@@ -109,15 +107,17 @@ table {
   padding: 20px; */
   text-align: center;
 }
+#charts {
+  margin: 4em auto;
+}
 #chart-wrapper {
   z-index: 1;
   margin: 1.5em;
   overflow: hidden;
-  height: auto;
-}
-
-#myChart {
-  height: 530px;
+  width: 300px;
+  height: 300px;
+  display: inline-block;
+  background-color: #F4EFE6;
 }
 #parameters {
   z-index: 1;
