@@ -41,9 +41,6 @@ function handleSubmit(event) {
   console.log('new list: ', Parameters.collection);
 
 
-  // var nitDataset = [];
-  // var alkDataset = [];
-  // var calDataset = [];
   for (var i = 0; i < Parameters.collection.length; i++) {
     nitDataset.push(Parameters.collection[i].nitrate);
     alkDataset.push(Parameters.collection[i].alkalinity);
