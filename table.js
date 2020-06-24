@@ -1,11 +1,23 @@
 'use strict';
 Parameters.collection = [];
-var days = [];
 
 var parametersForTable = ['Nitrates:','Alkalinity:', 'Calcium:', 'Magnesium:', 'Salinity:', 'Temperature:'];
 
+var stringyParameters = localStorage.getItem('params');
+var parameters = JSON.parse(stringyParameters);
+
+if (parameters) {
+  Parameters.collection = parameters;
+  document.getElementById('fishTable').innerHTML = '';
+
+  createTable();
+} else {
+  createTable();
+}
+
 function createTable()
 {
+
   createHeader();
   var paramsArrays = getParams();
 
@@ -19,9 +31,9 @@ function createHeader()
 {
   var table = createCell('fishTable', 'tr', 'th', 'Date:');
 
-  for(var i in days)
+  for(var i in Parameters.collection)
   {
-    createAndAttach(table[1], 'th', days[i]);
+    createAndAttach(table[1], 'th', Parameters.collection[i].today);
   }
   table[0].appendChild(table[1]);
 }
@@ -53,7 +65,7 @@ function getParams()
   var salArray = [];
   var tempArray = [];
 
-  for (var i in days)
+  for (var i in Parameters.collection)
   {
     nitArray.push(Parameters.collection[i].nitrate);
     alkArray.push(Parameters.collection[i].alkalinity);
@@ -69,7 +81,7 @@ function fillParameterRow(parameter, parameterArray)
 {
   var table = createCell('fishTable', 'tr', 'th', parameter);
 
-  for(var j in days)
+  for(var j in Parameters.collection)
   {
     createAndAttach(table[1], 'td', parameterArray[j]);
   }
@@ -87,10 +99,7 @@ function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp){
   Parameters.collection.push(this);
 
   let today = new Date().toLocaleDateString();
+  this.today = today;
   days.push(today);
 }
 
-var newParameter = new Parameters(5, 6, 7, 1300, 1.025, 78);
-var newParameter2 = new Parameters(8, 9, 10, 100, 1.015, 80);
-
-createTable();
