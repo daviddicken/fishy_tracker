@@ -13,6 +13,105 @@ body {
   margin: 0;
   z-index: 1;
 }
+
+/* https://www.youtube.com/watch?v=ETXba6QOzYg */
+.bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transform: translateZ(0);
+}
+.bubbles > li
+{
+  position: absolute;
+  list-style: none;
+  display: block;
+  background-color: rgba(255, 255, 255, 0.15);
+  bottom: -500px;
+  animation: circle 20s infinite; 
+  transition-timing-function: linear;
+  border-radius: 50%;
+}
+.bubbles > li:nth-child(1){
+  width: 40px;
+  height: 40px;
+  left: 40%;
+}
+.bubbles > li:nth-child(2){
+  width: 10px;
+  height: 10px;
+  left: 90%;
+  animation-delay: 4s;
+  animation-duration: 13s;
+}
+.bubbles > li:nth-child(3){
+  width: 60px;
+  height: 60px;
+  left: 10%;
+  animation-delay: 8s;
+  animation-duration: 17s;
+}
+.bubbles > li:nth-child(4){
+  width: 40px;
+  height: 40px;
+  left: 5%;
+  animation-delay: 1s;
+  animation-duration: 22s;
+}
+.bubbles > li:nth-child(5){
+  width: 80px;
+  height: 80px;
+  left: 50%;
+  animation-delay: 7s;
+  animation-duration: 12s;
+}
+.bubbles > li:nth-child(6){
+  width: 40px;
+  height: 40px;
+  right: 10%;
+  animation-delay: 5s;
+  animation-duration: 20s;
+}
+.bubbles > li:nth-child(7){
+  width: 10px;
+  height: 10px;
+  right: 10%;
+  animation-delay: 1s;
+  animation-duration: 22s;
+}
+.bubbles > li:nth-child(7){
+  width: 30px;
+  height: 30px;
+  right: 5%;
+  animation-delay: 4s;
+  animation-duration: 28s;
+}
+.bubbles > li:nth-child(8){
+  width: 50px;
+  height: 50px;
+  right: 8%;
+  animation-delay: 6s;
+  animation-duration: 20s;
+}
+.bubbles > li:nth-child(9){
+  width: 10px;
+  height: 10px;
+  left: 10%;
+  animation-delay: 10s;
+  animation-duration: 15s;
+}
+@keyframes circle{
+  0%{
+    transform: translateY(0);
+  }
+  100%{
+    transform: translateY(-1080px);
+  }
+}
+
 #page-container {
   position: relative;
   min-height: 100vh;
@@ -20,10 +119,11 @@ body {
 }
 
 #content-wrapper {
-  z-index: -1;
 
+  z-index: -1;
   background-color: #F4EFE6F0;
   width: 70%;
+  /* height: 60%; */
   margin: 50px auto 35px;
   padding: 10px 40px 250px 40px;
   height: auto;
@@ -112,10 +212,10 @@ table {
 #chart-wrapper {
   z-index: 1;
   margin: 1.5em;
+
   overflow: hidden;
   height: auto;
 }
-
 #myChart {
   height: 530px;
 }
@@ -129,6 +229,7 @@ table {
   font-size: 1.6em;
 }
 /* footer */
+
 #footer-wrapper {
   z-index: 1;
   background-color: #36434FE8;
@@ -190,7 +291,8 @@ table {
   padding: 5px;
 }
 .tank-img-div {
-  display: inline;
+  display: inline-block;
+  
 }
 
 .fish-tank {
