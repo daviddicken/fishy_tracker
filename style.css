@@ -107,10 +107,17 @@ table {
   padding: 20px; */
   text-align: center;
 }
+#charts {
+  margin: 4em auto;
+}
 #chart-wrapper {
   z-index: 1;
   margin: 1.5em;
   overflow: hidden;
+  width: 300px;
+  height: 300px;
+  display: inline-block;
+  background-color: #F4EFE6;
 }
 #parameters {
   z-index: 1;
