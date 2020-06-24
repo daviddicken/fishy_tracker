@@ -49,18 +49,6 @@ function handleSubmit(event) {
   var theFormForS = parseFloat(event.target.salinity.value);
   var theFormForT = parseFloat(event.target.temperature.value);
 
-
-  var newDayData = new Parameters(theFormForN, theFormForA, theFormForC, theFormForM, theFormForS, theFormForT);
-  
-function createGraph() {
-  var nitDataset = [];
-  var alkDataset = [];
-  var calDataset = [];
-  var magDataset = [];
-  var salDataset = [];
-  var tempDataset = [];
-  for (var i = 0; i < days.length; i++) {
-  
   for (var i = 0; i < Parameters.collection.length; i++) {
     nitDataset.push(Parameters.collection[i].nitrate);
     alkDataset.push(Parameters.collection[i].alkalinity);
@@ -70,11 +58,16 @@ function createGraph() {
     tempDataset.push(Parameters.collection[i].temperature);
   }
 
+  var newDayData = new Parameters(theFormForN, theFormForA, theFormForC, theFormForM, theFormForS, theFormForT);
   var stringyParamData = JSON.stringify(Parameters.collection);
   localStorage.setItem('params', stringyParamData);
-
   createGraph();
 }
+
+
+
+
+
 
 function createGraph() {
 
