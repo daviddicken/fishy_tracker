@@ -5,9 +5,9 @@ var parametersForTable = ['Nitrates:', 'Alkalinity:', 'Calcium:', 'Magnesium:', 
 var nitDataset = [];
 var alkDataset = [];
 var calDataset = [];
-// var magDataset = [];
-// var salDataset = [];
-// var tempDataset = [];
+var magDataset = [];
+var salDataset = [];
+var tempDataset = [];
 
 var stringyParameters = localStorage.getItem('params');
 var parameters = JSON.parse(stringyParameters);
@@ -21,17 +21,16 @@ var formSection = document.getElementById('dataform');
 formSection.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
-  // event.preventDefault();
+  //event.preventDefault();
 
   var theFormForN = parseFloat(event.target.nitrate.value);
   var theFormForA = parseFloat(event.target.alkalinity.value);
   var theFormForC = parseFloat(event.target.calcium.value);
-  // var theFormForM = parseFloat(event.target.magnesium.value);
-  // var theFormForS = parseFloat(event.target.salinity.value);
-  // var theFormForT = parseFloat(event.target.temperature.value);
+  var theFormForM = parseFloat(event.target.magnesium.value);
+  var theFormForS = parseFloat(event.target.salinity.value);
+  var theFormForT = parseFloat(event.target.temperature.value);
 
-  var newDayData = new Parameters(theFormForN, theFormForA, theFormForC);
-  // var newDayData = new Parameters(theFormForN, theFormForA, theFormForC, theFormForM, theFormForS, theFormForT);
+  var newDayData = new Parameters(theFormForN, theFormForA, theFormForC, theFormForM, theFormForS, theFormForT);
   console.log('input constr: ', newDayData);
 
   var stringyParamData = JSON.stringify(Parameters.collection);
@@ -41,18 +40,16 @@ function handleSubmit(event) {
 
 function createGraph() {
 
-  console.log('Parameter arr: ', Parameters.collection);
-
   for (var i = 0; i < Parameters.collection.length; i++) {
     nitDataset.push(Parameters.collection[i].nitrate);
     alkDataset.push(Parameters.collection[i].alkalinity);
     calDataset.push(Parameters.collection[i].calcium);
-
-    // magDataset.push(Parameters.collection[i].magnesium);
-    // salDataset.push(Parameters.collection[i].salinity);
-    // tempDataset.push(Parameters.collection[i].temperature);
+    magDataset.push(Parameters.collection[i].magnesium);
+    salDataset.push(Parameters.collection[i].salinity);
+    tempDataset.push(Parameters.collection[i].temp);
     days.push(Parameters.collection[i].today);
   }
+  console.log('Parameter arr: ', Parameters.collection);
 
   var ctx = document.getElementById('myChart').getContext('2d');
   var productChart = new Chart(ctx, {
@@ -126,6 +123,77 @@ function createGraph() {
     }
   });
 
+  var btx = document.getElementById('myChart4').getContext('2d');
+  var productChart = new Chart(btx, {
+    type: 'line',
+
+    data: {
+      labels: days,
+      datasets: [{
+        label: parametersForTable[3],
+        data: magDataset,
+        backgroundColor: 'yellow',
+        borderColor: 'yellow'
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+
+  var rtx = document.getElementById('myChart5').getContext('2d');
+  var productChart = new Chart(rtx, {
+    type: 'line',
+
+    data: {
+      labels: days,
+      datasets: [{
+        label: parametersForTable[4],
+        data: salDataset,
+        backgroundColor: 'orange',
+        borderColor: 'orange'
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+
+  var qtx = document.getElementById('myChart6').getContext('2d');
+  var productChart = new Chart(qtx, {
+    type: 'line',
+
+    data: {
+      labels: days,
+      datasets: [{
+        label: parametersForTable[5],
+        data: tempDataset,
+        backgroundColor: 'violet',
+        borderColor: 'violet'
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
 }
 
 function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
@@ -149,7 +217,7 @@ function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
 
 
 // var newParameter = new Parameters(20, 9, 400); //1300 mag, 1.025 sal, 78 temp
-// var newParameter2 = new Parameters(12, 8, 380); 
+// var newParameter2 = new Parameters(12, 8, 380);
 // var newParameter3 = new Parameters(11, 7, 350);
 // var newParameter4 = new Parameters(14, 10, 375);
 
