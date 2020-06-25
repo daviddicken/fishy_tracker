@@ -1,6 +1,7 @@
 'use strict';
 Parameters.collection = [];
 var days = [];
+var shortDateArr = [];
 var parametersForTable = ['Nitrates:', 'Alkalinity:', 'Calcium:', 'Magnesium:', 'Salinity:', 'Temperature:'];
 var nitDataset = [];
 var alkDataset = [];
@@ -24,7 +25,7 @@ var formSection = document.getElementById('dataform');
 formSection.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
-  //event.preventDefault();
+  event.preventDefault();
 
   var theFormForN = parseFloat(event.target.nitrate.value);
   var theFormForA = parseFloat(event.target.alkalinity.value);
@@ -53,23 +54,34 @@ function createGraph() {
     days.push(Parameters.collection[i].today);
   }
   console.log('Parameter arr: ', Parameters.collection);
+  shortDate();
 
   var chartArr = ['myChart', 'myChart2', 'myChart3', 'myChart4', 'myChart5', 'myChart6'];
   var colorArr = ['blue', 'red', 'green', 'yellow', 'orange', 'violet'];
   var paramDataArr = [nitDataset, alkDataset, calDataset, magDataset, salDataset, tempDataset];
 
+  //gradientStroke came from: blog.vanilla.io/chart-js-tutorial-how-to-make-gradient-line-chart-af145e5c92f9
   for (var j = 0; j < paramDataArr.length; j++) {
     var qtx = document.getElementById(chartArr[j]).getContext('2d');
+    var gradientStroke = qtx.createLinearGradient(500,0,100,0);
+    gradientStroke.addColorStop(0, 'blue');
+    gradientStroke.addColorStop(0.2, 'red');
+    gradientStroke.addColorStop(0.4, 'green');
+    gradientStroke.addColorStop(0.6, 'yellow');
+    gradientStroke.addColorStop(0.8, 'orange');
+    gradientStroke.addColorStop(1, 'violet');
+
     var productChart = new Chart(qtx, {
       type: 'line',
 
       data: {
-        labels: days,
+        labels: shortDateArr,
         datasets: [{
           label: parametersForTable[j],
           data: paramDataArr[j],
           backgroundColor: colorArr[j],
-          borderColor: colorArr[j]
+          borderColor: gradientStroke
+          // borderColor: colorArr[j],
         }]
       },
       options: {
@@ -85,6 +97,15 @@ function createGraph() {
   }
 }
 
+// shortDate function idea in part by w3 schools
+function shortDate(){
+  for (var i = 0; i < Parameters.collection.length; i++){
+    var shortDateHold = days[i].substring(0,4);
+    shortDateArr.push(shortDateHold);
+  }
+  console.log('date arr: ', shortDateArr);
+}
+
 function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
   this.nitrate = nitrate;
   this.alkalinity = alkalinity;
@@ -98,7 +119,7 @@ function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
   this.today = today;
   days.push(today);
   Parameters.collection.push(this);
-
+  console.log ('today: ', today);
 }
 
 // var newDay = new Date();

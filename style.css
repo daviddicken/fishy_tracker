@@ -145,6 +145,10 @@ table {
   display: block;
 }
 
+/* canvas:hover {
+  opacity: 0.5;
+} */
+
 .coral-img {
   height: 150px;
   width: 24.5%;
