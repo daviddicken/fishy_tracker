@@ -295,7 +295,7 @@ th{
   display: block;
   background-color: rgba(255, 255, 255, 0.15);
   bottom: -60px;
-  animation: circle 20s infinite; 
+  animation: shallow 20s infinite; 
   transition-timing-function: linear;
   border-radius: 50%;
 }
@@ -346,33 +346,129 @@ th{
   animation-delay: 1s;
   animation-duration: 22s;
 }
-.bubbles > li:nth-child(7){
+.bubbles > li:nth-child(8){
   width: 30px;
   height: 30px;
   right: 5%;
   animation-delay: 4s;
   animation-duration: 28s;
 }
-.bubbles > li:nth-child(8){
+.bubbles > li:nth-child(9){
   width: 50px;
   height: 50px;
   right: 8%;
   animation-delay: 6s;
   animation-duration: 20s;
 }
-.bubbles > li:nth-child(9){
+.bubbles > li:nth-child(10){
   width: 10px;
   height: 10px;
   left: 10%;
   animation-delay: 10s;
   animation-duration: 15s;
 }
-@keyframes circle{
+@keyframes shallow{
   0%{
     transform: translateY(0);
   }
   100%{
     transform: translateY(-1080px);
+  }
+}
+.deepbubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transform: translateZ(0);
+}
+.deepbubbles > li
+{
+  position: absolute;
+  list-style: none;
+  display: block;
+  background-color: rgba(255, 255, 255, 0.15);
+  bottom: -2000px;
+  animation: deep 20s infinite; 
+  transition-timing-function: linear;
+  border-radius: 50%;
+}
+.deepbubbles > li:nth-child(1){
+  width: 40px;
+  height: 40px;
+  left: 40%;
+}
+.deepbubbles > li:nth-child(2){
+  width: 10px;
+  height: 10px;
+  left: 90%;
+  animation-delay: 4s;
+  animation-duration: 13s;
+}
+.deepbubbles > li:nth-child(3){
+  width: 60px;
+  height: 60px;
+  left: 10%;
+  animation-delay: 8s;
+  animation-duration: 20s;
+}
+.deepbubbles > li:nth-child(4){
+  width: 40px;
+  height: 40px;
+  left: 5%;
+  animation-delay: 1s;
+  animation-duration: 22s;
+}
+.deepbubbles > li:nth-child(5){
+  width: 80px;
+  height: 80px;
+  left: 50%;
+  animation-delay: 7s;
+  animation-duration: 12s;
+}
+.deepbubbles > li:nth-child(6){
+  width: 40px;
+  height: 40px;
+  right: 10%;
+  animation-delay: 5s;
+  animation-duration: 20s;
+}
+.deepbubbles > li:nth-child(7){
+  width: 10px;
+  height: 10px;
+  right: 10%;
+  animation-delay: 1s;
+  animation-duration: 22s;
+}
+.deepbubbles > li:nth-child(8){
+  width: 30px;
+  height: 30px;
+  right: 5%;
+  animation-delay: 4s;
+  animation-duration: 28s;
+}
+.deepbubbles > li:nth-child(9){
+  width: 50px;
+  height: 50px;
+  right: 8%;
+  animation-delay: 6s;
+  animation-duration: 20s;
+}
+.deepbubbles > li:nth-child(10){
+  width: 10px;
+  height: 10px;
+  left: 10%;
+  animation-delay: 10s;
+  animation-duration: 15s;
+}
+@keyframes deep{
+  0%{
+    transform: translateY(0);
+  }
+  100%{
+    transform: translateY(-2000px);
   }
 }
 #waterchange{
