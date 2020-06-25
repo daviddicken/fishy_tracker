@@ -34,7 +34,6 @@ function handleSubmit(event) {
   var theFormForS = parseFloat(event.target.salinity.value);
   var theFormForT = parseFloat(event.target.temperature.value);
 
-
   //var newDayData = new Parameters(theFormForN, theFormForA, theFormForC);
   var newDayData = new Parameters(theFormForN, theFormForA, theFormForC, theFormForM, theFormForS, theFormForT);
   console.log('input constr: ', newDayData);
