@@ -138,7 +138,7 @@ function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
 
   let today = new Date().toLocaleDateString();
   console.log('today..', today);
-  this.today = today;
+  this.today = today.substring(0, 4);
   days.push(today);
   Parameters.collection.push(this);
   console.log('today: ', today);
