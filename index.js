@@ -25,7 +25,7 @@ var formSection = document.getElementById('dataform');
 formSection.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
- // event.preventDefault();
+  // event.preventDefault();
 
   var theFormForN = parseFloat(event.target.nitrate.value);
   var theFormForA = parseFloat(event.target.alkalinity.value);
@@ -33,14 +33,19 @@ function handleSubmit(event) {
   var theFormForM = parseFloat(event.target.magnesium.value);
   var theFormForS = parseFloat(event.target.salinity.value);
   var theFormForT = parseFloat(event.target.temperature.value);
-
-  //var newDayData = new Parameters(theFormForN, theFormForA, theFormForC);
+  
+  if (isNaN(theFormForN) || isNaN(theFormForA) || isNaN(theFormForC) || isNaN(theFormForM) || isNaN(theFormForS) || isNaN(theFormForT)){
+    event.preventDefault();
+    alert('Please enter a valid number.');
+  }
+  else{
   var newDayData = new Parameters(theFormForN, theFormForA, theFormForC, theFormForM, theFormForS, theFormForT);
   console.log('input constr: ', newDayData);
 
   var stringyParamData = JSON.stringify(Parameters.collection);
   localStorage.setItem('params', stringyParamData);
   createGraph();
+  }
 }
 
 function createGraph() {
@@ -132,6 +137,13 @@ function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
 // var newParameter2 = new Parameters(12, 8, 380);
 // var newParameter3 = new Parameters(11, 7, 350);
 // var newParameter4 = new Parameters(14, 10, 375);
+ 
+days[0] = '06/20/2020';
+days[1] = '06/21/2020';
+days[2] = '06/22/2020';
+days[3] = '06/23/2020';
+
+createGraph();
 
 // days[0] = '06/20/2020';
 // days[1] = '06/21/2020';

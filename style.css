@@ -51,18 +51,16 @@ nav ul li a {
   text-decoration: none;
   font-size: 2em;
   color: #BAB078;
+  transition: ease-in-out all 400ms;
+  -moz-transition: ease-in-out all 400ms;
+  -webkit-transition: ease-in-out all 400ms;
 }
 nav ul li a:hover {
-  transition: ease-in-out all 200ms;
-  -moz-transition: ease-in-out all 200ms;
-  -webkit-transition: ease-in-out all 200ms;
   font-size: 2.5em;
   font-weight: 900;
   margin: 0;
+  color: #3CB3BA;
 }
-/* nav a:active {
-  transform: scale(1.0);
-} */
 /* https://www.youtube.com/watch?v=US_3XvufMLU */
 main {
   margin: 0 auto;
@@ -85,8 +83,6 @@ form legend {
   font-size: 1.8em;
 }
 form label {
-  /* float: left; */
-  /* width: 25%; */
   text-align: right;
 }
 form input {
@@ -96,6 +92,20 @@ form input {
 }
 h2, h3 {
   color: #3CB3BA;
+}
+div h2 {
+  font-size: 2.2em;
+  margin-top: 1em;
+}
+div h3 {
+  font-size: 2em;
+  margin-top: 1em;
+}
+div ul li {
+  list-style: none;
+}
+div ul li a{
+  text-decoration: none;
 }
 
 #tablediv{
@@ -147,8 +157,6 @@ th{
 
 #fieldset-wrapper {
   z-index: 1;
-  /* margin: 0 60px;s
-  padding: 20px; */
   text-align: center;
 }
 #charts {
@@ -189,10 +197,6 @@ th{
 .coral-img-div {
   display: block;
 }
-
-/* canvas:hover {
-  opacity: 0.5;
-} */
 
 .coral-img {
   height: 150px;
