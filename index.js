@@ -33,8 +33,9 @@ function handleSubmit(event) {
   var theFormForM = parseFloat(event.target.magnesium.value);
   var theFormForS = parseFloat(event.target.salinity.value);
   var theFormForT = parseFloat(event.target.temperature.value);
-  // alert('Please enter a valid number.');
+  
   if (isNaN(theFormForN) || isNaN(theFormForA) || isNaN(theFormForC) || isNaN(theFormForM) || isNaN(theFormForS) || isNaN(theFormForT)){
+    event.preventDefault();
     alert('Please enter a valid number.');
   }
 
@@ -123,8 +124,7 @@ function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
   this.temp = temp;
 
   let today = new Date().toLocaleDateString();
-  console.log('today..',today);
-  this.today = today;
+  this.today = today.substring(0,4);
   days.push(today);
   Parameters.collection.push(this);
   console.log ('today: ', today);
