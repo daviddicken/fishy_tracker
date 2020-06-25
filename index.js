@@ -38,7 +38,6 @@ function handleSubmit(event) {
     event.preventDefault();
     alert('Please enter a valid number.');
   }
-
   else{
   var newDayData = new Parameters(theFormForN, theFormForA, theFormForC, theFormForM, theFormForS, theFormForT);
   console.log('input constr: ', newDayData);
