@@ -33,18 +33,18 @@ function handleSubmit(event) {
   var theFormForM = parseFloat(event.target.magnesium.value);
   var theFormForS = parseFloat(event.target.salinity.value);
   var theFormForT = parseFloat(event.target.temperature.value);
-  
+
   if (isNaN(theFormForN) || isNaN(theFormForA) || isNaN(theFormForC) || isNaN(theFormForM) || isNaN(theFormForS) || isNaN(theFormForT)){
     event.preventDefault();
     alert('Please enter a valid number.');
   }
   else{
-  var newDayData = new Parameters(theFormForN, theFormForA, theFormForC, theFormForM, theFormForS, theFormForT);
-  console.log('input constr: ', newDayData);
+    var newDayData = new Parameters(theFormForN, theFormForA, theFormForC, theFormForM, theFormForS, theFormForT);
+    console.log('input constr: ', newDayData);
 
-  var stringyParamData = JSON.stringify(Parameters.collection);
-  localStorage.setItem('params', stringyParamData);
-  createGraph();
+    var stringyParamData = JSON.stringify(Parameters.collection);
+    localStorage.setItem('params', stringyParamData);
+    createGraph();
   }
 }
 
