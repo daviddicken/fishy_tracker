@@ -49,6 +49,9 @@ function handleSubmit(event) {
 }
 
 function createGraph() {
+  var rgbArr = ['rgb(0,0,255)', 'rgb(255,0,0)', 'rgb(0,128,0)', 'rgb(255,255,0)', 'rgb(255,165,0)', 'rgb(238,130,238)'];
+  var opacityArr = [', 0.7)', ', 0.4)', ', 0)'];
+  var posLine = ['0', '0.5', '1'];
 
   for (var i = 0; i < Parameters.collection.length; i++) {
     nitDataset.push(Parameters.collection[i].nitrate);
@@ -64,19 +67,29 @@ function createGraph() {
   shortDate();
 
   var chartArr = ['myChart', 'myChart2', 'myChart3', 'myChart4', 'myChart5', 'myChart6'];
-  var colorArr = ['blue', 'red', 'green', 'yellow', 'orange', 'violet'];
   var paramDataArr = [nitDataset, alkDataset, calDataset, magDataset, salDataset, tempDataset];
 
   //gradientStroke came from: blog.vanilla.io/chart-js-tutorial-how-to-make-gradient-line-chart-af145e5c92f9
   for (var j = 0; j < paramDataArr.length; j++) {
     var qtx = document.getElementById(chartArr[j]).getContext('2d');
-    var gradientStroke = qtx.createLinearGradient(500,0,100,0);
+    var gradientStroke = qtx.createLinearGradient(500, 0, 100, 0);
+    var gradientBackground = qtx.createLinearGradient(0, 0, 0, 450);
+
     gradientStroke.addColorStop(0, 'blue');
     gradientStroke.addColorStop(0.2, 'red');
     gradientStroke.addColorStop(0.4, 'green');
     gradientStroke.addColorStop(0.6, 'yellow');
     gradientStroke.addColorStop(0.8, 'orange');
     gradientStroke.addColorStop(1, 'violet');
+
+    var currentArr = rgbArr[j];
+    var firstStr = currentArr.slice(0, (rgbArr[j].length - 1));
+    for (var k = 0; k < opacityArr.length; k++) {
+      var secondStr = opacityArr[k];
+      var newStr = firstStr + secondStr;
+      gradientBackground.addColorStop(JSON.parse(posLine[k]), newStr);
+    }
+
 
     var productChart = new Chart(qtx, {
       type: 'line',
@@ -86,7 +99,8 @@ function createGraph() {
         datasets: [{
           label: parametersForTable[j],
           data: paramDataArr[j],
-          backgroundColor: colorArr[j],
+          // backgroundColor: colorArr[j],
+          backgroundColor: gradientBackground,
           borderColor: gradientStroke
           // borderColor: colorArr[j],
         }]
@@ -105,9 +119,9 @@ function createGraph() {
 }
 
 // shortDate function idea in part by w3 schools
-function shortDate(){
-  for (var i = 0; i < Parameters.collection.length; i++){
-    var shortDateHold = days[i].substring(0,4);
+function shortDate() {
+  for (var i = 0; i < Parameters.collection.length; i++) {
+    var shortDateHold = days[i].substring(0, 4);
     shortDateArr.push(shortDateHold);
   }
   console.log('date arr: ', shortDateArr);
@@ -123,31 +137,9 @@ function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
   this.temp = temp;
 
   let today = new Date().toLocaleDateString();
-  this.today = today.substring(0,4);
+  console.log('today..', today);
+  this.today = today;
   days.push(today);
   Parameters.collection.push(this);
-  console.log ('today: ', today);
+  console.log('today: ', today);
 }
-
-// var newDay = new Date();
-// Parameters.prototype.date = newDay;
-
-
-// var newParameter = new Parameters(20, 9, 400); //1300 mag, 1.025 sal, 78 temp
-// var newParameter2 = new Parameters(12, 8, 380);
-// var newParameter3 = new Parameters(11, 7, 350);
-// var newParameter4 = new Parameters(14, 10, 375);
- 
-days[0] = '06/20/2020';
-days[1] = '06/21/2020';
-days[2] = '06/22/2020';
-days[3] = '06/23/2020';
-
-createGraph();
-
-// days[0] = '06/20/2020';
-// days[1] = '06/21/2020';
-// days[2] = '06/22/2020';
-// days[3] = '06/23/2020';
-
-//createGraph();
