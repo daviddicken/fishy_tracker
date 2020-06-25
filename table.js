@@ -1,5 +1,4 @@
 'use strict';
-Parameters.collection = [];
 
 var parametersForTable = ['Date:','Nitrates:','Alkalinity:', 'Calcium:', 'Magnesium:', 'Salinity:', 'Temperature:'];
 
@@ -7,22 +6,18 @@ var stringyParameters = localStorage.getItem('params');
 var parameters = JSON.parse(stringyParameters);
 
 if (parameters) {
-  Parameters.collection = parameters;
   document.getElementById('fishTable').innerHTML = '';
   createTable();
 } else {
   createTable();
 }
-
 //------------ check if days since needs to be populated ----------------
 var today = new Date().toLocaleDateString();
 var fromStorage = localStorage.getItem('startDate');
 var oldDate = JSON.parse(fromStorage);
-console.log('oldDate....', oldDate);
 
 if(oldDate)
 {
-  console.log('checked old date');
   var timeDiff  = (new Date(today)) - (new Date(oldDate));
   var daysSince = timeDiff / (1000 * 60 * 60 * 24);
   document.getElementById('days').textContent = 'Days since last water change: ' + daysSince;
@@ -41,12 +36,9 @@ function resetDay(event)
     var toStorage = JSON.stringify(newDay);
     localStorage.setItem('startDate', toStorage);
     document.getElementById('days').textContent = 'Days since last water change: 0';
-    console.log('set new date');
   }
 }
-
-//---------------------------------------------------
-
+//----------------------------------------------
 //------------------- Functions ----------------
 function createTable()
 {
@@ -85,15 +77,15 @@ function getParams()
   var tempArray = [];
   var dateArray = [];
 
-  for (var i in Parameters.collection)
+  for (var i in parameters)
   {
-    nitArray.push(Parameters.collection[i].nitrate);
-    alkArray.push(Parameters.collection[i].alkalinity);
-    calArray.push(Parameters.collection[i].calcium);
-    magArray.push(Parameters.collection[i].magnesium);
-    salArray.push(Parameters.collection[i].salinity);
-    tempArray.push(Parameters.collection[i].temp);
-    dateArray.push(Parameters.collection[i].today);
+    nitArray.push(parameters[i].nitrate);
+    alkArray.push(parameters[i].alkalinity);
+    calArray.push(parameters[i].calcium);
+    magArray.push(parameters[i].magnesium);
+    salArray.push(parameters[i].salinity);
+    tempArray.push(parameters[i].temp);
+    dateArray.push(parameters[i].today);
   }
   return [dateArray, nitArray, alkArray, calArray, magArray, salArray, tempArray,];
 }
@@ -108,17 +100,4 @@ function fillParameterRow(parameter, parameterArray)
   }
   table[0].appendChild(table[1]);
 }
-//---------------------------------------------
-function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp){
-  this.nitrate = nitrate;
-  this.alkalinity = alkalinity;
-  this.calcium = calcium;
-  //Stretch Goal
-  this.magnesium = magnesium;
-  this.salinity = salinity;
-  this.temp = temp;
-  Parameters.collection.push(this);
 
-  let today = new Date().toLocaleDateString();
-  this.today = today;
-}
