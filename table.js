@@ -13,6 +13,40 @@ if (parameters) {
 } else {
   createTable();
 }
+
+//------------ check if days since needs to be populated ----------------
+var today = new Date().toLocaleDateString();
+var fromStorage = localStorage.getItem('startDate');
+var oldDate = JSON.parse(fromStorage);
+console.log('oldDate....', oldDate);
+
+if(oldDate)
+{
+  console.log('checked old date');
+  var timeDiff  = (new Date(today)) - (new Date(oldDate));
+  var daysSince = timeDiff / (1000 * 60 * 60 * 24);
+  document.getElementById('days').textContent = 'Days since last water change: ' + daysSince;
+}else{
+  document.getElementById('days').textContent = '';
+}
+//------------ Handle water change click --------------------
+
+var waterChange = document.getElementById('waterchange');
+waterChange = document.addEventListener('click', resetDay);
+function resetDay(event)
+{
+  if(event.target.tagName === 'BUTTON')
+  {
+    var newDay = new Date().toLocaleDateString();
+    var toStorage = JSON.stringify(newDay);
+    localStorage.setItem('startDate', toStorage);
+    document.getElementById('days').textContent = 'Days since last water change: 0';
+    console.log('set new date');
+  }
+}
+
+//---------------------------------------------------
+
 //------------------- Functions ----------------
 function createTable()
 {
