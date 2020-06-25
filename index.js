@@ -34,6 +34,8 @@ function handleSubmit(event) {
   var theFormForS = parseFloat(event.target.salinity.value);
   var theFormForT = parseFloat(event.target.temperature.value);
 
+
+  //var newDayData = new Parameters(theFormForN, theFormForA, theFormForC);
   var newDayData = new Parameters(theFormForN, theFormForA, theFormForC, theFormForM, theFormForS, theFormForT);
   console.log('input constr: ', newDayData);
 
@@ -51,6 +53,7 @@ function createGraph() {
     magDataset.push(Parameters.collection[i].magnesium);
     salDataset.push(Parameters.collection[i].salinity);
     tempDataset.push(Parameters.collection[i].temp);
+
     days.push(Parameters.collection[i].today);
   }
   console.log('Parameter arr: ', Parameters.collection);
@@ -116,6 +119,7 @@ function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
   this.temp = temp;
 
   let today = new Date().toLocaleDateString();
+  console.log('today..',today);
   this.today = today;
   days.push(today);
   Parameters.collection.push(this);
