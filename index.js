@@ -24,7 +24,7 @@ var formSection = document.getElementById('dataform');
 formSection.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
-  //event.preventDefault();
+  event.preventDefault();
 
   var theFormForN = parseFloat(event.target.nitrate.value);
   var theFormForA = parseFloat(event.target.alkalinity.value);
@@ -69,7 +69,7 @@ function createGraph() {
           label: parametersForTable[j],
           data: paramDataArr[j],
           backgroundColor: colorArr[j],
-          borderColor: colorArr[j]
+          borderColor: colorArr[j],
         }]
       },
       options: {
@@ -98,7 +98,7 @@ function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
   this.today = today;
   days.push(today);
   Parameters.collection.push(this);
-
+  console.log ('today: ', today);
 }
 
 // var newDay = new Date();
