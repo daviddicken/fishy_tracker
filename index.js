@@ -64,8 +64,12 @@ function createGraph() {
   for (var j = 0; j < paramDataArr.length; j++) {
     var qtx = document.getElementById(chartArr[j]).getContext('2d');
     var gradientStroke = qtx.createLinearGradient(500,0,100,0);
-    gradientStroke.addColorStop(0, '#80b6f4');
-    gradientStroke.addColorStop(1, '#f49080');
+    gradientStroke.addColorStop(0, 'blue');
+    gradientStroke.addColorStop(0.2, 'red');
+    gradientStroke.addColorStop(0.4, 'green');
+    gradientStroke.addColorStop(0.6, 'yellow');
+    gradientStroke.addColorStop(0.8, 'orange');
+    gradientStroke.addColorStop(1, 'violet');
 
     var productChart = new Chart(qtx, {
       type: 'line',
