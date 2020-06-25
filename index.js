@@ -153,9 +153,13 @@ var newParameter2 = new Parameters(12, 8, 380);
 var newParameter3 = new Parameters(11, 7, 350);
 var newParameter4 = new Parameters(14, 10, 375);
 
+<<<<<<< HEAD
 days[0] = '06/20/2020';
 days[1] = '06/21/2020';
 days[2] = '06/22/2020';
 days[3] = '06/23/2020';
 
 createGraph();
+=======
+createGraph();
+>>>>>>> 3c41c73a750726e4a6ed35cae1d7014284216aa7
