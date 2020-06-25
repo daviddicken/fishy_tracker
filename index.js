@@ -25,7 +25,7 @@ var formSection = document.getElementById('dataform');
 formSection.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
-  event.preventDefault();
+ // event.preventDefault();
 
   var theFormForN = parseFloat(event.target.nitrate.value);
   var theFormForA = parseFloat(event.target.alkalinity.value);
@@ -119,8 +119,7 @@ function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
   this.temp = temp;
 
   let today = new Date().toLocaleDateString();
-  console.log('today..',today);
-  this.today = today;
+  this.today = today.substring(0,4);
   days.push(today);
   Parameters.collection.push(this);
   console.log ('today: ', today);
