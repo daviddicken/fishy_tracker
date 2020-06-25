@@ -101,6 +101,9 @@ div h3 {
   font-size: 2em;
   margin-top: 1em;
 }
+div p {
+  font-size: 1.6em;
+}
 div ul li {
   list-style: none;
 }
@@ -392,7 +395,7 @@ th{
   list-style: none;
   display: block;
   background-color: rgba(255, 255, 255, 0.15);
-  bottom: -1800px;
+  bottom: -1000px;
   animation: deep 20s infinite; 
   transition-timing-function: linear;
   border-radius: 50%;
