@@ -1,12 +1,21 @@
 'use strict';
 Parameters.collection = [];
-var days = [];
 
-var parametersForTable = ['Nitrates:','Alkalinity:', 'Calcium:', 'Magnesium:', 'Salinity:', 'Temperature:'];
+var parametersForTable = ['Date:','Nitrates:','Alkalinity:', 'Calcium:', 'Magnesium:', 'Salinity:', 'Temperature:'];
 
+var stringyParameters = localStorage.getItem('params');
+var parameters = JSON.parse(stringyParameters);
+
+if (parameters) {
+  Parameters.collection = parameters;
+  document.getElementById('fishTable').innerHTML = '';
+  createTable();
+} else {
+  createTable();
+}
+//------------------- Functions ----------------
 function createTable()
 {
-  createHeader();
   var paramsArrays = getParams();
 
   for(var i in parametersForTable)
@@ -14,18 +23,6 @@ function createTable()
     fillParameterRow(parametersForTable[i], paramsArrays[i]);
   }
 }
-//------------------------------------
-function createHeader()
-{
-  var table = createCell('fishTable', 'tr', 'th', 'Date:');
-
-  for(var i in days)
-  {
-    createAndAttach(table[1], 'th', days[i]);
-  }
-  table[0].appendChild(table[1]);
-}
-//-----------------------------------------
 function createCell(tableId, rowType, cellType, theText)
 {
   var table = document.getElementById(tableId);
@@ -52,8 +49,9 @@ function getParams()
   var magArray = [];
   var salArray = [];
   var tempArray = [];
+  var dateArray = [];
 
-  for (var i in days)
+  for (var i in Parameters.collection)
   {
     nitArray.push(Parameters.collection[i].nitrate);
     alkArray.push(Parameters.collection[i].alkalinity);
@@ -61,21 +59,22 @@ function getParams()
     magArray.push(Parameters.collection[i].magnesium);
     salArray.push(Parameters.collection[i].salinity);
     tempArray.push(Parameters.collection[i].temp);
+    dateArray.push(Parameters.collection[i].today);
   }
-  return [nitArray, alkArray, calArray, magArray, salArray, tempArray];
+  return [dateArray, nitArray, alkArray, calArray, magArray, salArray, tempArray,];
 }
 //----------------------------------------------
 function fillParameterRow(parameter, parameterArray)
 {
   var table = createCell('fishTable', 'tr', 'th', parameter);
 
-  for(var j in days)
+  for(var j = 0; j < parameterArray.length; j++)
   {
     createAndAttach(table[1], 'td', parameterArray[j]);
   }
   table[0].appendChild(table[1]);
 }
-
+//---------------------------------------------
 function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp){
   this.nitrate = nitrate;
   this.alkalinity = alkalinity;
@@ -87,10 +86,5 @@ function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp){
   Parameters.collection.push(this);
 
   let today = new Date().toLocaleDateString();
-  days.push(today);
+  this.today = today;
 }
-
-var newParameter = new Parameters(5, 6, 7, 1300, 1.025, 78);
-var newParameter2 = new Parameters(8, 9, 10, 100, 1.015, 80);
-
-createTable();
