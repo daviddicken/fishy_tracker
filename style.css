@@ -25,7 +25,6 @@ body {
   margin: 50px auto 35px;
   padding: 10px 40px 250px 40px;
   height: auto;
-  border-radius: 3px;
 }
 header {
   z-index: 1;
@@ -118,6 +117,8 @@ table {
   height: 300px;
   display: inline-block;
   background-color: #F4EFE6;
+  border: 5px solid lightblue;
+  border-radius: 25px;
 }
 #parameters {
   z-index: 1;

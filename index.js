@@ -15,6 +15,9 @@ var parameters = JSON.parse(stringyParameters);
 if (parameters) {
   Parameters.collection = parameters;
   createGraph();
+} else {
+  var x = document.getElementById('charts');
+  x.style.display = 'none';
 }
 
 var formSection = document.getElementById('dataform');
