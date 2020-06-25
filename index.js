@@ -35,6 +35,7 @@ function handleSubmit(event) {
   var theFormForT = parseFloat(event.target.temperature.value);
   // alert('Please enter a valid number.');
   if (isNaN(theFormForN) || isNaN(theFormForA) || isNaN(theFormForC) || isNaN(theFormForM) || isNaN(theFormForS) || isNaN(theFormForT)){
+    event.preventDefault();
     alert('Please enter a valid number.');
   }
 
