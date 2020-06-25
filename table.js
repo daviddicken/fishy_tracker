@@ -8,8 +8,6 @@ var parameters = JSON.parse(stringyParameters);
 if (parameters) {
   document.getElementById('fishTable').innerHTML = '';
   createTable();
-} else {
-  createTable();
 }
 //https://stackoverflow.com/questions/542938/how-do-i-get-the-number-of-days-between-two-dates-in-javascrip
 //------------ check if days since needs to be populated ----------------

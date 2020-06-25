@@ -124,7 +124,6 @@ function shortDate() {
     var shortDateHold = days[i].substring(0, 4);
     shortDateArr.push(shortDateHold);
   }
-  console.log('date arr: ', shortDateArr);
 }
 
 function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
@@ -137,9 +136,7 @@ function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
   this.temp = temp;
 
   let today = new Date().toLocaleDateString();
-  console.log('today..', today);
   this.today = today.substring(0, 4);
   days.push(today);
   Parameters.collection.push(this);
-  console.log('today: ', today);
 }
