@@ -25,7 +25,7 @@ var formSection = document.getElementById('dataform');
 formSection.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
-  event.preventDefault();
+  // event.preventDefault();
 
   var theFormForN = parseFloat(event.target.nitrate.value);
   var theFormForA = parseFloat(event.target.alkalinity.value);
