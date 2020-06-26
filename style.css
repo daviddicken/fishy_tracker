@@ -49,7 +49,7 @@ nav ul li {
 }
 nav ul li a {
   text-decoration: none;
-  font-size: 2em;
+  font-size: 3.4em;
   color: #BAB078;
   transition: ease-in-out all 400ms;
   -moz-transition: ease-in-out all 400ms;
@@ -80,10 +80,18 @@ fieldset {
 form legend {
   z-index: 1;
   text-align: center;
-  font-size: 1.8em;
+  font-size: 2em;
 }
 form label {
   text-align: right;
+  font-size: 1.6em;
+  color: #36434F;
+}
+form label:hover {
+  color: #BAB078;
+  transition: ease-in-out all 100ms;
+  -moz-transition: ease-in-out all 100ms;
+  -webkit-transition: ease-in-out all 100ms;
 }
 form input {
   z-index: 1;
@@ -109,6 +117,9 @@ div ul li {
 }
 div ul li a{
   text-decoration: none;
+}
+div ul li a:hover{
+  color: #3CB3BA;
 }
 
 #tablediv{
