@@ -49,7 +49,7 @@ nav ul li {
 }
 nav ul li a {
   text-decoration: none;
-  font-size: 2em;
+  font-size: 3.4em;
   color: #BAB078;
   transition: ease-in-out all 400ms;
   -moz-transition: ease-in-out all 400ms;
@@ -80,10 +80,18 @@ fieldset {
 form legend {
   z-index: 1;
   text-align: center;
-  font-size: 1.8em;
+  font-size: 2em;
 }
 form label {
   text-align: right;
+  font-size: 1.6em;
+  color: #36434F;
+}
+form label:hover {
+  color: #BAB078;
+  transition: ease-in-out all 100ms;
+  -moz-transition: ease-in-out all 100ms;
+  -webkit-transition: ease-in-out all 100ms;
 }
 form input {
   z-index: 1;
@@ -101,6 +109,9 @@ div h3 {
   font-size: 2em;
   margin-top: 1em;
 }
+div p {
+  font-size: 1.6em;
+}
 div ul li {
   list-style: none;
   font-size: x-large;
@@ -108,10 +119,15 @@ div ul li {
 div ul li a{
   text-decoration: none;
 }
+<<<<<<< HEAD
 div > ul > li > a:hover {
   font-size: 1.5em;
   font-weight: 900;
   margin: 0;
+=======
+div ul li a:hover{
+  color: #3CB3BA;
+>>>>>>> d287cd94d4c2afe5a2c73ba08ae65b789237c387
 }
 
 #tablediv{
@@ -405,7 +421,7 @@ th{
   list-style: none;
   display: block;
   background-color: rgba(255, 255, 255, 0.15);
-  bottom: -1800px;
+  bottom: -1000px;
   animation: deep 20s infinite; 
   transition-timing-function: linear;
   border-radius: 50%;
