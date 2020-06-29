@@ -95,7 +95,7 @@ function fillParameterRow(parameter, parameterArray)
   var table = createCell('fishTable', 'tr', 'th', parameter);
 
   // for(var j = parameterArray.length; j >= 0; j--)
-  for(var j in parameterArray)
+  for(var j = 0; j < parameterArray.length; j++)
   {
     //createAndAttach(table[1], 'td', 'test '),// added
     createAndAttach(table[1], 'td', parameterArray[j]);
