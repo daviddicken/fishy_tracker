@@ -103,9 +103,15 @@ div h3 {
 }
 div ul li {
   list-style: none;
+  font-size: x-large;
 }
 div ul li a{
   text-decoration: none;
+}
+div > ul > li > a:hover {
+  font-size: 1.5em;
+  font-weight: 900;
+  margin: 0;
 }
 
 #tablediv{
@@ -125,6 +131,13 @@ table{
   float: left;
   font-size: 21px;
   font-weight: bolder;
+}
+/* ====Trying to target first td column ***********/
+table > tr > td:first-child{
+background-color: black;
+color: red;
+width: 90px;
+
 }
 td{
   width: 70px;
@@ -474,6 +487,7 @@ th{
     -webkit-transform:translateY(-2000px);
     transform: translateY(-2000px);
   }
+/* ----- Water Change button ------- */
 }
 #waterchange{
   background-color: #3CB3BA;
@@ -485,4 +499,8 @@ th{
 }
 #days{
   font-weight: bolder;
+}
+/* ------------------------------- */
+.resources{
+  font-size: xx-large;
 }

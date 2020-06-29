@@ -34,18 +34,17 @@ function handleSubmit(event) {
   var theFormForS = parseFloat(event.target.salinity.value);
   var theFormForT = parseFloat(event.target.temperature.value);
 
-  if (isNaN(theFormForN) || isNaN(theFormForA) || isNaN(theFormForC) || isNaN(theFormForM) || isNaN(theFormForS) || isNaN(theFormForT)){
-    event.preventDefault();
-    alert('Please enter a valid number.');
-  }
-  else{
-    var newDayData = new Parameters(theFormForN, theFormForA, theFormForC, theFormForM, theFormForS, theFormForT);
-    console.log('input constr: ', newDayData);
+  // if (isNaN(theFormForN) || isNaN(theFormForA) || isNaN(theFormForC) || isNaN(theFormForM) || isNaN(theFormForS) || isNaN(theFormForT)){
+  //   event.preventDefault();
+  //   alert('Please enter a valid number.');
+  // }
+  // else{
+  var newDayData = new Parameters(theFormForN, theFormForA, theFormForC, theFormForM, theFormForS, theFormForT);
 
-    var stringyParamData = JSON.stringify(Parameters.collection);
-    localStorage.setItem('params', stringyParamData);
-    createGraph();
-  }
+  var stringyParamData = JSON.stringify(Parameters.collection);
+  localStorage.setItem('params', stringyParamData);
+  createGraph();
+  // }
 }
 
 function createGraph() {
@@ -63,7 +62,6 @@ function createGraph() {
 
     days.push(Parameters.collection[i].today);
   }
-  console.log('Parameter arr: ', Parameters.collection);
   shortDate();
 
   var chartArr = ['myChart', 'myChart2', 'myChart3', 'myChart4', 'myChart5', 'myChart6'];
@@ -89,7 +87,6 @@ function createGraph() {
       var newStr = firstStr + secondStr;
       gradientBackground.addColorStop(JSON.parse(posLine[k]), newStr);
     }
-
 
     var productChart = new Chart(qtx, {
       type: 'line',
@@ -130,7 +127,6 @@ function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
   this.nitrate = nitrate;
   this.alkalinity = alkalinity;
   this.calcium = calcium;
-  //Stretch Goal
   this.magnesium = magnesium;
   this.salinity = salinity;
   this.temp = temp;
