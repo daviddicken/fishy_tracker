@@ -1,6 +1,6 @@
 'use strict';
 Parameters.collection = [];
-var days = [];
+//var days = [];
 //var shortDateArr = [];
 var parametersForTable = ['Nitrates:', 'Alkalinity:', 'Calcium:', 'Magnesium:', 'Salinity:', 'Temperature:'];
 var nitDataset = [];
@@ -62,7 +62,7 @@ function createGraph() {
     tempDataset.push(Parameters.collection[i].temp);
     dateDataset.push(Parameters.collection[i].today);
 
-    days.push(Parameters.collection[i].today);
+    //days.push(Parameters.collection[i].today);
   }
   //shortDate();
 
@@ -135,6 +135,6 @@ function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
 
   let today = new Date().toLocaleDateString();
   this.today = today.substring(0, 4);
-  days.push(today);
+  // days.push(today);
   Parameters.collection.push(this);
 }
