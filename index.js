@@ -1,7 +1,7 @@
 'use strict';
 Parameters.collection = [];
 var days = [];
-var shortDateArr = [];
+//var shortDateArr = [];
 var parametersForTable = ['Nitrates:', 'Alkalinity:', 'Calcium:', 'Magnesium:', 'Salinity:', 'Temperature:'];
 var nitDataset = [];
 var alkDataset = [];
@@ -9,6 +9,7 @@ var calDataset = [];
 var magDataset = [];
 var salDataset = [];
 var tempDataset = [];
+var dateDataset = [];
 
 var stringyParameters = localStorage.getItem('params');
 var parameters = JSON.parse(stringyParameters);
@@ -59,10 +60,11 @@ function createGraph() {
     magDataset.push(Parameters.collection[i].magnesium);
     salDataset.push(Parameters.collection[i].salinity);
     tempDataset.push(Parameters.collection[i].temp);
+    dateDataset.push(Parameters.collection[i].today);
 
     days.push(Parameters.collection[i].today);
   }
-  shortDate();
+  //shortDate();
 
   var chartArr = ['myChart', 'myChart2', 'myChart3', 'myChart4', 'myChart5', 'myChart6'];
   var paramDataArr = [nitDataset, alkDataset, calDataset, magDataset, salDataset, tempDataset];
@@ -92,7 +94,7 @@ function createGraph() {
       type: 'line',
 
       data: {
-        labels: shortDateArr,
+        labels: dateDataset,//shortDateArr,
         datasets: [{
           label: parametersForTable[j],
           data: paramDataArr[j],
@@ -116,12 +118,12 @@ function createGraph() {
 }
 
 // shortDate function idea in part by w3 schools
-function shortDate() {
-  for (var i = 0; i < Parameters.collection.length; i++) {
-    var shortDateHold = days[i].substring(0, 4);
-    shortDateArr.push(shortDateHold);
-  }
-}
+// function shortDate() {
+//   for (var i = 0; i < Parameters.collection.length; i++) {
+//     var shortDateHold = days[i].substring(0, 4);
+//     shortDateArr.push(shortDateHold);
+//   }
+// }
 
 function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
   this.nitrate = nitrate;
