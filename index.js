@@ -1,7 +1,5 @@
 'use strict';
 Parameters.collection = [];
-//var days = [];
-//var shortDateArr = [];
 var parametersForTable = ['Nitrates:', 'Alkalinity:', 'Calcium:', 'Magnesium:', 'Salinity:', 'Temperature:'];
 var nitDataset = [];
 var alkDataset = [];
@@ -13,6 +11,7 @@ var dateDataset = [];
 
 var stringyParameters = localStorage.getItem('params');
 var parameters = JSON.parse(stringyParameters);
+console.log('stingy returned...', parameters);
 
 if (parameters) {
   Parameters.collection = parameters;
@@ -35,17 +34,11 @@ function handleSubmit(event) {
   var theFormForS = parseFloat(event.target.salinity.value);
   var theFormForT = parseFloat(event.target.temperature.value);
 
-  // if (isNaN(theFormForN) || isNaN(theFormForA) || isNaN(theFormForC) || isNaN(theFormForM) || isNaN(theFormForS) || isNaN(theFormForT)){
-  //   event.preventDefault();
-  //   alert('Please enter a valid number.');
-  // }
-  // else{
   var newDayData = new Parameters(theFormForN, theFormForA, theFormForC, theFormForM, theFormForS, theFormForT);
 
   var stringyParamData = JSON.stringify(Parameters.collection);
   localStorage.setItem('params', stringyParamData);
   createGraph();
-  // }
 }
 
 function createGraph() {
@@ -61,10 +54,7 @@ function createGraph() {
     salDataset.push(Parameters.collection[i].salinity);
     tempDataset.push(Parameters.collection[i].temp);
     dateDataset.push(Parameters.collection[i].today);
-
-    //days.push(Parameters.collection[i].today);
   }
-  //shortDate();
 
   var chartArr = ['myChart', 'myChart2', 'myChart3', 'myChart4', 'myChart5', 'myChart6'];
   var paramDataArr = [nitDataset, alkDataset, calDataset, magDataset, salDataset, tempDataset];
@@ -94,7 +84,7 @@ function createGraph() {
       type: 'line',
 
       data: {
-        labels: dateDataset,//shortDateArr,
+        labels: dateDataset,
         datasets: [{
           label: parametersForTable[j],
           data: paramDataArr[j],
@@ -134,7 +124,7 @@ function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
   this.temp = temp;
 
   let today = new Date().toLocaleDateString();
+
   this.today = today.substring(0, 4);
-  // days.push(today);
   Parameters.collection.push(this);
 }
