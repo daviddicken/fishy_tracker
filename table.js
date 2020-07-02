@@ -49,6 +49,7 @@ function createTable()
     fillParameterRow(parametersForTable[i], paramsArrays[i]);
   }
 }
+//--------------------------------------------
 function createCell(tableId, rowType, cellType, theText)
 {
   var table = document.getElementById(tableId);
