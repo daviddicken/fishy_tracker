@@ -11,7 +11,7 @@ var dateDataset = [];
 
 var stringyParameters = localStorage.getItem('params');
 var parameters = JSON.parse(stringyParameters);
-console.log('stingy returned...', parameters);
+//console.log('stingy returned...', parameters);
 
 //---- create graph if data present -------
 if (parameters) {
@@ -39,31 +39,71 @@ function handleSubmit(event) {
   // get stringy from local storage
   //debugger;
   //return [dateArray, nitArray, alkArray, calArray, magArray, salArray, tempArray,];
-  // if (parameters)
-  // {
-  //   var today = new Date().toLocaleDateString().slice(0, -2);
-  //   var foundFlag = false;
-  //   var paramArrays = getParams();
+  if (parameters)
+  {
+    var today = new Date().toLocaleDateString().slice(0, -2);
+    // might not need the flag
+    //var foundFlag = false;
+    var paramArrays = getParams();
+    var stringyParamData = '';
 
-  //   for(var i in paramArrays[0])
-  //   {
-  //     if(paramArrays[0][i] === today)
-  //     {
-  //       var matchFoundAt = i;
-  //       foundFlag = true;
+    for(var i in paramArrays[0])
+    {
+      if(paramArrays[0][i] === today)
+      {
+        //var matchFoundAt = i;
+        //foundFlag = true;
 
-  //     }
-
-  //   }
-
-
-  // }else{
-    var newDayData = new Parameters(theFormForN, theFormForA, theFormForC, theFormForM, theFormForS, theFormForT);
-
-    var stringyParamData = JSON.stringify(Parameters.collection);
+        //-------------------- Nitrate ---------
+        if(!isNaN(theFormForN) && theFormForN !== '')
+        {
+          console.log('nitrate entered');
+          Parameters.collection[i].nitrate = theFormForN;
+        }
+        //------------------- Alk --------------
+        if(!isNaN(theFormForA) && theFormForA !== '')
+        {
+          console.log('nitrate entered');
+          Parameters.collection[i].alkalinity = theFormForA;
+        }
+        //------------------ Cal --------------
+        if(!isNaN(theFormForC) && theFormForC !== '')
+        {
+          console.log('nitrate entered');
+          Parameters.collection[i].calcium = theFormForC;
+        }
+        //----------------- Mag ---------------
+        if(!isNaN(theFormForM) && theFormForM !== '')
+        {
+          console.log('nitrate entered');
+          Parameters.collection[i].magnesium = theFormForM;
+        }
+        //---------------- Sal ---------------
+        if(!isNaN(theFormForS) && theFormForS !== '')
+        {
+          console.log('nitrate entered');
+          Parameters.collection[i].salinity = theFormForS;
+        }
+        //--------------- Temp ---------------
+        if(!isNaN(theFormForT) && theFormForT !== '')
+        {
+          console.log('nitrate entered');
+          Parameters.collection[i].temp = theFormForT;
+        }
+      }
+    }
+    // make function
+    stringyParamData = JSON.stringify(Parameters.collection);
     localStorage.setItem('params', stringyParamData);
     createGraph();
-  // }
+  }else{
+    // This was the original code in the handler function
+    var newDayData = new Parameters(theFormForN, theFormForA, theFormForC, theFormForM, theFormForS, theFormForT);
+
+    stringyParamData = JSON.stringify(Parameters.collection);
+    localStorage.setItem('params', stringyParamData);
+    createGraph();
+  }
 
 
   // go through paramsFromStorage[0] for date comparison
@@ -72,17 +112,6 @@ function handleSubmit(event) {
   // go through each theForm arrays and check if it is not a isNaN (if its a number)
   // if it is a number replace the parameter value on the array index i with value from theForm
   // then create and save a new stringy
-
-
-
-
-  //--------------------------------------------------
-  // put this code in the else part of if statement if a matching date is not found
-  
-  
-  
-  //---------------------------------------------------
-
 
 }
 
@@ -169,20 +198,20 @@ function getParams()
   var salArray = [];
   var tempArray = [];
   var dateArray = [];
-
-  for (var i in parameters)
+  // changed parameters out for Parameters.collection
+  for (var i in Parameters.collection)
   {
-    nitArray.push(parameters[i].nitrate);
-    alkArray.push(parameters[i].alkalinity);
-    calArray.push(parameters[i].calcium);
-    magArray.push(parameters[i].magnesium);
-    salArray.push(parameters[i].salinity);
-    tempArray.push(parameters[i].temp);
-    dateArray.push(parameters[i].today);
+    nitArray.push(Parameters.collection[i].nitrate);
+    alkArray.push(Parameters.collection[i].alkalinity);
+    calArray.push(Parameters.collection[i].calcium);
+    magArray.push(Parameters.collection[i].magnesium);
+    salArray.push(Parameters.collection[i].salinity);
+    tempArray.push(Parameters.collection[i].temp);
+    dateArray.push(Parameters.collection[i].today);
   }
   return [dateArray, nitArray, alkArray, calArray, magArray, salArray, tempArray,];
 }
-
+//------------- Constructor ----------------
 function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
   this.nitrate = nitrate;
   this.alkalinity = alkalinity;
@@ -195,6 +224,6 @@ function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
 
   // let today = new Date().toLocaleDateString();
   // this.today = today.substring(0, 4);
-
+  //parameters.push(this);
   Parameters.collection.push(this);
 }
