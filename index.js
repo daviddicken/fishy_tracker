@@ -68,41 +68,38 @@ function handleSubmit(event) {
         //-------------------- Nitrate ---------
         if(!isNaN(theFormForN) && theFormForN !== '')
         {
-          console.log('nitrate entered');
           Parameters.collection[i].nitrate = theFormForN;
         }
         //------------------- Alk --------------
         if(!isNaN(theFormForA) && theFormForA !== '')
         {
-          console.log('alk entered');
           Parameters.collection[i].alkalinity = theFormForA;
         }
         //------------------ Cal --------------
         if(!isNaN(theFormForC) && theFormForC !== '')
         {
-          console.log('calc entered');
           Parameters.collection[i].calcium = theFormForC;
         }
         //----------------- Mag ---------------
         if(!isNaN(theFormForM) && theFormForM !== '')
         {
-          console.log('mag entered');
           Parameters.collection[i].magnesium = theFormForM;
         }
         //---------------- Sal ---------------
         if(!isNaN(theFormForS) && theFormForS !== '')
         {
-          console.log('salinity entered');
           Parameters.collection[i].salinity = theFormForS;
         }
         //--------------- Temp ---------------
         if(!isNaN(theFormForT) && theFormForT !== '')
         {
-          console.log('temp entered');
           Parameters.collection[i].temp = theFormForT;
         }
+      }else{
+        var newDayData = new Parameters(theFormForN, theFormForA, theFormForC, theFormForM, theFormForS, theFormForT);
       }
     }
+
     // make function for saving to storage
     stringyParamData = JSON.stringify(Parameters.collection);
     localStorage.setItem('params', stringyParamData);
@@ -167,7 +164,8 @@ function createGraph() {
 
     var productChart = new Chart(qtx, {
       type: 'line',
-
+      //test line below for empty data points ****************
+      //connectNullData: true,
       data: {
         labels: dateDataset,
         datasets: [{
