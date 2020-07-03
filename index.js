@@ -41,9 +41,10 @@ function handleSubmit(event) {
   //return [dateArray, nitArray, alkArray, calArray, magArray, salArray, tempArray,];
   if (parameters)
   {
-    var today = new Date().toLocaleDateString().slice(0, -2);
+    var today = new Date().toLocaleDateString();
+    today = today.slice(0, -4) + today.slice(-2);
     // might not need the flag
-    //var foundFlag = false;
+    var foundFlag = false;
     var paramArrays = getParams();
     var stringyParamData = '';
 
@@ -52,8 +53,8 @@ function handleSubmit(event) {
       if(paramArrays[0][i] === today)
       {
         //var matchFoundAt = i;
-        //foundFlag = true;
-        
+        foundFlag = true;
+
         //----------- Idea --------------
         // can use paramArrays if match is found in [0][i]
         // then stepe through each array comparing and replacing at i location
@@ -95,11 +96,12 @@ function handleSubmit(event) {
         {
           Parameters.collection[i].temp = theFormForT;
         }
-      }else{
-        var newDayData = new Parameters(theFormForN, theFormForA, theFormForC, theFormForM, theFormForS, theFormForT);
       }
     }
-
+    if(foundFlag === false)
+    {
+      var newDayData = new Parameters(theFormForN, theFormForA, theFormForC, theFormForM, theFormForS, theFormForT);
+    }
     // make function for saving to storage
     stringyParamData = JSON.stringify(Parameters.collection);
     localStorage.setItem('params', stringyParamData);
@@ -228,6 +230,9 @@ function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
   this.magnesium = magnesium;
   this.salinity = salinity;
   this.temp = temp;
-  this.today = new Date().toLocaleDateString().slice(0, -2);
+  var today = new Date().toLocaleDateString();
+  today = today.slice(0, -4) + today.slice(-2);
+  this.today = today;
+  // this.today = new Date().toLocaleDateString().slice(0, -2);
   Parameters.collection.push(this);
 }
