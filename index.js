@@ -53,6 +53,17 @@ function handleSubmit(event) {
       {
         //var matchFoundAt = i;
         //foundFlag = true;
+        
+        //----------- Idea --------------
+        // can use paramArrays if match is found in [0][i]
+        // then stepe through each array comparing and replacing at i location
+        // ex: paramArrays[1][i], paramArrays[2][i], ect or
+        // nested loop paramArray[j][i]
+        // have to figure out how much is involved to rewite array and all
+        // places Parameter.collection is called and wether it is 
+        // worth it to replace all the code to make more dynamic
+        //--------------------------------
+        //-------------------------------
 
         //-------------------- Nitrate ---------
         if(!isNaN(theFormForN) && theFormForN !== '')
@@ -63,36 +74,36 @@ function handleSubmit(event) {
         //------------------- Alk --------------
         if(!isNaN(theFormForA) && theFormForA !== '')
         {
-          console.log('nitrate entered');
+          console.log('alk entered');
           Parameters.collection[i].alkalinity = theFormForA;
         }
         //------------------ Cal --------------
         if(!isNaN(theFormForC) && theFormForC !== '')
         {
-          console.log('nitrate entered');
+          console.log('calc entered');
           Parameters.collection[i].calcium = theFormForC;
         }
         //----------------- Mag ---------------
         if(!isNaN(theFormForM) && theFormForM !== '')
         {
-          console.log('nitrate entered');
+          console.log('mag entered');
           Parameters.collection[i].magnesium = theFormForM;
         }
         //---------------- Sal ---------------
         if(!isNaN(theFormForS) && theFormForS !== '')
         {
-          console.log('nitrate entered');
+          console.log('salinity entered');
           Parameters.collection[i].salinity = theFormForS;
         }
         //--------------- Temp ---------------
         if(!isNaN(theFormForT) && theFormForT !== '')
         {
-          console.log('nitrate entered');
+          console.log('temp entered');
           Parameters.collection[i].temp = theFormForT;
         }
       }
     }
-    // make function
+    // make function for saving to storage
     stringyParamData = JSON.stringify(Parameters.collection);
     localStorage.setItem('params', stringyParamData);
     createGraph();
@@ -219,11 +230,6 @@ function Parameters(nitrate, alkalinity, calcium, magnesium, salinity, temp) {
   this.magnesium = magnesium;
   this.salinity = salinity;
   this.temp = temp;
-  var today = new Date().toLocaleDateString().slice(0, -2);
-  this.today = today;
-
-  // let today = new Date().toLocaleDateString();
-  // this.today = today.substring(0, 4);
-  //parameters.push(this);
+  this.today = new Date().toLocaleDateString().slice(0, -2);
   Parameters.collection.push(this);
 }
